@@ -13,10 +13,10 @@ import java.util.ArrayList;
  */
 public class Casillero {
     
-    static int contador = 0;
-    int numero;
-    int cedulaCliente = -1;
-    ArrayList<Entregable> listaEntregables = new ArrayList();
+    private static int contador = 0;
+    private int numero;
+    private int cedulaCliente = -1;
+    private ArrayList<Entregable> listaEntregables = new ArrayList();
     
     public Casillero(){
         contador++;

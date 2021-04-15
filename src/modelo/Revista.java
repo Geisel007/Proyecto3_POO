@@ -13,16 +13,17 @@ public class Revista extends Entregable {
     
     private String nombre;
     private boolean catalago;
-    //private tema temal;
+    private String tema;
     
     public Revista(){}
     
-    public Revista(int codigo, boolean estado, String descripcion, 
-            Cliente remitente, String pNombre, boolean pCatalogo){
+    public Revista(String descripcion, Cliente remitente, String pNombre, 
+            boolean pCatalogo, String pTema){
         
-        super(codigo, estado, descripcion, remitente);
+        super(descripcion, remitente);
         pNombre = nombre;
         pCatalogo = catalago;
+        pTema = tema;
     }
 
     public String getNombre() {
@@ -41,13 +42,14 @@ public class Revista extends Entregable {
         this.catalago = catalago;
     }
 
-    /*public tema getTemal() {
-        return temal;
+    public String getTema() {
+        return tema;
     }
 
-    public void setTemal(tema temal) {
-        this.temal = temal;
-    }*/
+    public void setTema(String tema) {
+        this.tema = tema;
+    }
+ 
     
     
 }

@@ -127,19 +127,55 @@ public class Cliente {
                     
                     if (cActual.getNumero() == numeroCasillero){
                         
-                        Sobre nuevoSobre = new Sobre(codigo, estado, descripcion,
-                                remitente, pTipo, pContenido, pPeso);
+                        Sobre nuevoSobre = new Sobre(descripcion, remitente, 
+                                pTipo, pContenido, pPeso);
                         
                         cActual.agregarEntregable(nuevoSobre);
                         
                     }
                 }
             } else {
-            System.out.println("Tipo ingresado invalida");
+            System.out.println("Peso ingresado invalido");
             } 
         } else {
-            System.out.println("Tipo ingresado invalida");
+            System.out.println("Tipo ingresado invalido");
         } 
+    }
+    
+    public void registrarRevista(String descripcion,Cliente remitente, String pNombre, 
+            boolean pCatalogo, String pTema){
+        
+        ArrayList listaCasilleros = Counter.getListaCasilleros();
+        for (int i = 0; i < listaCasilleros.size(); i++){
+            Casillero cActual = (Casillero) listaCasilleros.get(i);
+                    
+            if (cActual.getNumero() == numeroCasillero){
+                        
+            Revista nuevaRevista = new Revista(descripcion,remitente, pNombre, 
+                    pCatalogo, pTema);
+                        
+            cActual.agregarEntregable(nuevaRevista);
+                        
+            }
+        }
+    }
+    
+    public void registrarPaquete(String descripcion,Cliente remitente, String pTipo, 
+            boolean pContenidoElectronico, boolean pFragil, int pPeso){
+        
+        ArrayList listaCasilleros = Counter.getListaCasilleros();
+        for (int i = 0; i < listaCasilleros.size(); i++){
+            Casillero cActual = (Casillero) listaCasilleros.get(i);
+                    
+            if (cActual.getNumero() == numeroCasillero){
+                        
+            Paquete nuevoPaquete = new Paquete(descripcion,remitente, pTipo, 
+                    pContenidoElectronico, pFragil, pPeso);
+                        
+            cActual.agregarEntregable(nuevoPaquete);
+                        
+            }
+        }
     }
     
 }

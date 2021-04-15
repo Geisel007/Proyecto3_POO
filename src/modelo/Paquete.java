@@ -18,11 +18,11 @@ public class Paquete extends Entregable {
     
     public Paquete(){}
     
-    public Paquete(int codigo, boolean estado, String descripcion, 
+    public Paquete(String descripcion, 
             Cliente remitente, String pTipo, boolean pContenidoElectronico, 
             boolean pFragil, int pPeso){
         
-        super(codigo, estado, descripcion, remitente);
+        super(descripcion, remitente);
         pTipo = tipo;
         pContenidoElectronico = contenidoElectronico;
         pFragil = fragil;

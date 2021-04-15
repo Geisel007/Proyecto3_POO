@@ -12,7 +12,8 @@ package modelo;
 public class Entregable {
     
     private int codigo;
-    private boolean estado;
+    static int contador = 1000;
+    private boolean estado = false;
     private String descripcion;
     private Cliente remitente;
     
@@ -20,12 +21,13 @@ public class Entregable {
         
     }
     
-    public Entregable(int pCodigo, boolean pEstado, String pDescripcion, 
+    public Entregable(String pDescripcion, 
             Cliente pRemitente){
-        pCodigo = codigo;
-        pEstado = estado;
         pDescripcion = descripcion;
         pRemitente = remitente;
+        contador++;
+        codigo = contador;
+        
     }
 
     public void setCodigo(int codigo) {

@@ -22,11 +22,11 @@ import javax.mail.internet.MimeMessage;
  */
 public class Mailer {
     
-  public static void sendMailClave(String correoEmisor, String pNombre, String pClave){
+  public static void sendMail(String correoRemitente, String pNombre){
       try {
-          String remitente = "primerproyectodepootec2020@gmail.com"; //Correo de la cuenta que envia el mensaje
-          String clavecorreo = "soyunaclave123"; //clave de la cuenta
-          String destino = correoEmisor; //La cuenta a la que se envia
+          String emisor = "primerproyectodepootec2021@gmail.com";
+          String claveCorreo = "soyunaclave123";
+          String destino = correoRemitente; //La cuenta a la que se envia
           
           Properties props= new Properties();
           props.put("mail.smtp.host","smtp.gmail.com");
@@ -34,21 +34,20 @@ public class Mailer {
           props.put("mail.smtp.auth", "true");
           props.put("mail.smtp.starttls.enable","true");
           props.put("mail.smtp.ssl.trust","smtp.gmail.com");
-          props.put("mail.smtp.user", remitente);
-          props.put("mail.smtp.password",clavecorreo);
+          props.put("mail.smtp.user", emisor);
+          props.put("mail.smtp.password",claveCorreo);
           
           Session session = Session.getDefaultInstance(props);
           MimeMessage mensaje = new MimeMessage(session);
           
           mensaje.addRecipient(Message.RecipientType.TO, new InternetAddress(destino));
-          mensaje.setSubject("Contraseña.");
-          mensaje.setText("Bienvenido a nuestra aplicación "+ pNombre +". \n Para acceder a su cuenta necesita su "
-                  + "correo y contraseña la cual es la siguiente: "+ pClave +"\n Gracias por confiar en nosotros.");
+          mensaje.setText("Bienvenido a nuestra aplicación "+ pNombre);
           Transport transport = session.getTransport("smtp");
-          transport.connect("smtp.gmail.com", remitente, clavecorreo);
+          transport.connect("smtp.gmail.com", emisor, claveCorreo);
           transport.sendMessage(mensaje,mensaje.getAllRecipients());
           transport.close();
           System.out.println("Correo Enviado");
+          
       } catch (AddressException ex) {
           Logger.getLogger(Mailer.class.getName()).log(Level.SEVERE, null, ex);
       } catch (MessagingException ex) {
