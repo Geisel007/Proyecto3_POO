@@ -131,7 +131,7 @@ public class Cliente {
                                 pTipo, pContenido, pPeso);
                         
                         cActual.agregarEntregable(nuevoSobre);
-                        
+                        System.out.println("Sobre registrado correctamente");
                     }
                 }
             } else {
@@ -155,6 +155,7 @@ public class Cliente {
                     pCatalogo, pTema);
                         
             cActual.agregarEntregable(nuevaRevista);
+            System.out.println("Revista registrada correctamente");
                         
             }
         }
@@ -173,6 +174,7 @@ public class Cliente {
                     pContenidoElectronico, pFragil, pPeso);
                         
             cActual.agregarEntregable(nuevoPaquete);
+            System.out.println("Paquete registrado correctamente");
                         
             }
         }
