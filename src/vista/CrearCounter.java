@@ -5,6 +5,7 @@
  */
 package vista;
 
+import control.Controlador;
 import javax.swing.JOptionPane;
 import modelo.Counter;
 
@@ -15,6 +16,8 @@ import modelo.Counter;
  * @author IanSamuels
  */
 public class CrearCounter extends javax.swing.JFrame {
+    
+    private Controlador CONTROLADOR = new Controlador();
     
     public static Counter counter;
     /**
@@ -169,7 +172,8 @@ public class CrearCounter extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(null, "Se ha creado el counter",
                 "InfoBox: " + "Alerta", JOptionPane.INFORMATION_MESSAGE);
         
-        MenuPrincipal ventanaMenu = new MenuPrincipal();
+        CONTROLADOR.crearCounter(nombre, cedula, direccion, cantidadCasilleros);
+        MenuPrincipal ventanaMenu = new MenuPrincipal(CONTROLADOR);
         ventanaMenu.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_botonCrearActionPerformed

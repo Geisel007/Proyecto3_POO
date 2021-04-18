@@ -46,12 +46,12 @@
                       </Group>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="fieldSexo" linkSize="1" alignment="0" min="-2" pref="198" max="-2" attributes="0"/>
                           <Component id="fieldNombre" linkSize="1" alignment="0" min="-2" pref="163" max="-2" attributes="0"/>
                           <Component id="fieldCorreo" linkSize="1" alignment="0" min="-2" pref="163" max="-2" attributes="0"/>
                           <Component id="fieldTelefono" linkSize="1" alignment="0" min="-2" pref="80" max="-2" attributes="0"/>
                           <Component id="fieldDireccion" linkSize="1" alignment="0" min="-2" pref="202" max="-2" attributes="0"/>
                           <Component id="fieldFecha" linkSize="1" alignment="0" min="-2" pref="79" max="-2" attributes="0"/>
+                          <Component id="comboSexo" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="55" max="-2" attributes="0"/>
                   </Group>
@@ -80,7 +80,7 @@
                   <Component id="fieldIdentificacion" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="37" max="32767" attributes="0"/>
+              <EmptySpace pref="35" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="fieldNombre" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -102,8 +102,8 @@
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="fieldSexo" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabel7" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="comboSexo" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -130,6 +130,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Modificar"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botonModificarActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel7">
       <Properties>
@@ -174,8 +177,6 @@
         <Property name="text" type="java.lang.String" value="Telefono:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="fieldSexo">
-    </Component>
     <Component class="javax.swing.JTextField" name="fieldIdentificacion">
     </Component>
     <Component class="javax.swing.JTextField" name="fieldNombre">
@@ -187,6 +188,19 @@
     <Component class="javax.swing.JTextField" name="fieldDireccion">
     </Component>
     <Component class="javax.swing.JTextField" name="fieldFecha">
+    </Component>
+    <Component class="javax.swing.JComboBox" name="comboSexo">
+      <Properties>
+        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+          <StringArray count="2">
+            <StringItem index="0" value="Femenino"/>
+            <StringItem index="1" value="Maculino"/>
+          </StringArray>
+        </Property>
+      </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+      </AuxValues>
     </Component>
   </SubComponents>
 </Form>

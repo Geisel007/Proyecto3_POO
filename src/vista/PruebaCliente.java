@@ -28,10 +28,10 @@ public class PruebaCliente {
         System.out.println("Cliente 2: " + cliente2.toString());
         System.out.println("Cliente 3: " + cliente3.toString());
         
-        admClientes.agregar(cliente1);
-        admClientes.agregar(cliente2);
-        admClientes.agregar(cliente3);
-        System.out.println(admClientes.toString());
+//        admClientes.agregar(cliente1);
+//        admClientes.agregar(cliente2);
+//        admClientes.agregar(cliente3);
+//        System.out.println(admClientes.toString());
         
         admClientes.eliminar(cliente3);
         System.out.println(admClientes.toString());

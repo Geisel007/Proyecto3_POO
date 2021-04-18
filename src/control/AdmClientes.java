@@ -2,6 +2,7 @@
 package control;
 
 import java.util.ArrayList;
+import java.util.Date;
 import modelo.Cliente;
 
 /**
@@ -25,7 +26,9 @@ public class AdmClientes {
         return null;
     }
     
-    public boolean agregar (Cliente cliente ){ 
+    public boolean agregar (int identificacion, String nombre, String correo, int telefono, String direccion, String sexo, 
+                        Date fechaDeNacimiento ){ 
+        Cliente cliente = new Cliente(identificacion,nombre, correo, telefono, direccion, sexo, fechaDeNacimiento);
         if (cliente.existe(cliente.getIdentificacion(), listaClientes) == -1){
             listaClientes.add(cliente);
             return true;
@@ -48,6 +51,10 @@ public class AdmClientes {
            return true;
         }
         return false; 
+    }
+
+    public ArrayList<Cliente> getListaClientes() {
+        return listaClientes;
     }
     
     @Override

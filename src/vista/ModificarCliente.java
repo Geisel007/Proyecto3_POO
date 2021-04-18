@@ -5,6 +5,9 @@
  */
 package vista;
 
+import java.util.ArrayList;
+import static vista.CrearCounter.counter;
+
 /**
  *
  * @author PC
@@ -37,19 +40,24 @@ public class ModificarCliente extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         botonVolver = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
-        fieldSexo = new javax.swing.JTextField();
         fieldIdentificacion = new javax.swing.JTextField();
         fieldNombre = new javax.swing.JTextField();
         fieldCorreo = new javax.swing.JTextField();
         fieldTelefono = new javax.swing.JTextField();
         fieldDireccion = new javax.swing.JTextField();
         fieldFecha = new javax.swing.JTextField();
+        comboSexo = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel6.setText("Dirección:");
 
         botonModificar.setText("Modificar");
+        botonModificar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonModificarActionPerformed(evt);
+            }
+        });
 
         jLabel7.setText("Sexo:");
 
@@ -71,6 +79,8 @@ public class ModificarCliente extends javax.swing.JFrame {
         });
 
         jLabel5.setText("Telefono:");
+
+        comboSexo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Femenino", "Maculino" }));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -96,12 +106,12 @@ public class ModificarCliente extends javax.swing.JFrame {
                             .addComponent(jLabel4))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(fieldSexo, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(fieldNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(fieldCorreo, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(fieldTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(fieldDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(fieldFecha, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(fieldFecha, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(comboSexo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(55, 55, 55))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(jLabel1)
@@ -114,7 +124,7 @@ public class ModificarCliente extends javax.swing.JFrame {
                 .addGap(23, 23, 23))
         );
 
-        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {fieldCorreo, fieldDireccion, fieldFecha, fieldIdentificacion, fieldNombre, fieldSexo, fieldTelefono});
+        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {fieldCorreo, fieldDireccion, fieldFecha, fieldIdentificacion, fieldNombre, fieldTelefono});
 
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -125,7 +135,7 @@ public class ModificarCliente extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(fieldIdentificacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(fieldNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3))
@@ -143,8 +153,8 @@ public class ModificarCliente extends javax.swing.JFrame {
                     .addComponent(jLabel6))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(fieldSexo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel7))
+                    .addComponent(jLabel7)
+                    .addComponent(comboSexo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(fieldFecha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -164,6 +174,28 @@ public class ModificarCliente extends javax.swing.JFrame {
         ventanaAdminClientes.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_botonVolverActionPerformed
+
+    private void botonModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonModificarActionPerformed
+         int id;
+        String nombre;
+        String correo;
+        int telefono;
+        String direccion;
+        String sexo;
+        String fechaString;
+        ArrayList listaClientes = counter.getListaClientes();
+        
+        id = Integer.parseInt(fieldIdentificacion.getText());
+        nombre = fieldNombre.getText();
+        correo = fieldCorreo.getText();
+        telefono = Integer.parseInt(fieldTelefono.getText());
+        direccion = fieldDireccion.getText();
+        sexo = (String) comboSexo.getSelectedItem();
+        fechaString = fieldFecha.getText();
+        
+        
+        
+    }//GEN-LAST:event_botonModificarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -203,12 +235,12 @@ public class ModificarCliente extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botonModificar;
     private javax.swing.JButton botonVolver;
+    private javax.swing.JComboBox<String> comboSexo;
     private javax.swing.JTextField fieldCorreo;
     private javax.swing.JTextField fieldDireccion;
     private javax.swing.JTextField fieldFecha;
     private javax.swing.JTextField fieldIdentificacion;
     private javax.swing.JTextField fieldNombre;
-    private javax.swing.JTextField fieldSexo;
     private javax.swing.JTextField fieldTelefono;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

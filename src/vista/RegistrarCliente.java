@@ -5,6 +5,7 @@
  */
 package vista;
 
+import control.Controlador;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -24,6 +25,14 @@ public class RegistrarCliente extends javax.swing.JFrame {
     /**
      * Creates new form RegistrarCliente
      */
+    
+    public Controlador CONTROLADOR;
+    
+    public RegistrarCliente(Controlador CONTROLADOR) {
+        initComponents();
+        this.CONTROLADOR = CONTROLADOR;
+    }
+    
     public RegistrarCliente() {
         initComponents();
     }
@@ -198,7 +207,8 @@ public class RegistrarCliente extends javax.swing.JFrame {
         String direccion;
         String sexo;
         String fechaString;
-        ArrayList listaClientes = counter.getListaClientes();
+        ArrayList<Cliente> listaClientes;// = counter.getListaClientes();
+        listaClientes = CONTROLADOR.getClientes();
         
         id = Integer.parseInt(fieldIdentificacion.getText());
         nombre = fieldNombre.getText();

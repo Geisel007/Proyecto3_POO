@@ -5,6 +5,9 @@
  */
 package vista;
 
+import control.Controlador;
+import modelo.Counter;
+
 /**
  *
  * @author PC
@@ -14,6 +17,14 @@ public class MenuPrincipal extends javax.swing.JFrame {
     /**
      * Creates new form MenuPrincipal
      */
+    
+    public Controlador CONTROLADOR;
+    
+    public MenuPrincipal(Controlador CONTROLADOR) {
+        initComponents();
+        this.CONTROLADOR = CONTROLADOR;
+    }
+    
     public MenuPrincipal() {
         initComponents();
     }

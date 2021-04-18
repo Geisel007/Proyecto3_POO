@@ -45,6 +45,11 @@ public class AdminClientes extends javax.swing.JFrame {
         });
 
         botonModificar.setText("Modificar cliente");
+        botonModificar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonModificarActionPerformed(evt);
+            }
+        });
 
         botonConsultar.setText("Consultar cliente");
         botonConsultar.addActionListener(new java.awt.event.ActionListener() {
@@ -123,6 +128,12 @@ public class AdminClientes extends javax.swing.JFrame {
         ventanaRegistrar.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_botonRegistrarActionPerformed
+
+    private void botonModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonModificarActionPerformed
+        ModificarCliente ventanaModificar = new ModificarCliente();
+        ventanaModificar.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_botonModificarActionPerformed
 
     /**
      * @param args the command line arguments
