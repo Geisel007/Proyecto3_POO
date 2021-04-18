@@ -49,6 +49,16 @@ public class Casillero {
         listaEntregables.add(entregable);
         System.out.println("Entregable registrado correctamente");;
     }
+    
+    public void mostrarEntregablesPendientes(){
+        for (int i = 0; i < listaEntregables.size(); i++){
+            Entregable eActual = listaEntregables.get(i);
+            if (!eActual.isEstado()){
+                System.out.println("Codigo: " + eActual.getCodigo());
+                System.out.println("Descripcion: " + eActual.getDescripcion());
+            }
+        }
+    }
 
     @Override
     public String toString() {

@@ -15,14 +15,14 @@ public class Entregable {
     static int contador = 1000;
     private boolean estado = false;
     private String descripcion;
-    private Cliente remitente;
+    private int remitente;
     
     public Entregable(){
         
     }
     
     public Entregable(String pDescripcion, 
-            Cliente pRemitente){
+            int pRemitente){
         pDescripcion = descripcion;
         pRemitente = remitente;
         contador++;
@@ -42,7 +42,7 @@ public class Entregable {
         this.descripcion = descripcion;
     }
 
-    public void setRemitente(Cliente remitente) {
+    public void setRemitente(int remitente) {
         this.remitente = remitente;
     }
 
@@ -58,7 +58,7 @@ public class Entregable {
         return descripcion;
     }
 
-    public Cliente getRemitente() {
+    public int getRemitente() {
         return remitente;
     }
     

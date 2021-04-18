@@ -17,7 +17,7 @@ public class Revista extends Entregable {
     
     public Revista(){}
     
-    public Revista(String descripcion, Cliente remitente, String pNombre, 
+    public Revista(String descripcion, int remitente, String pNombre, 
             boolean pCatalogo, String pTema){
         
         super(descripcion, remitente);

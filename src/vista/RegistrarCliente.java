@@ -5,17 +5,37 @@
  */
 package vista;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.mail.internet.AddressException;
+import javax.mail.internet.InternetAddress;
+import javax.swing.JOptionPane;
+import modelo.Cliente;
+import static vista.CrearCounter.counter;
 /**
  *
- * @author PC
+ * @author Ian Samuels
  */
 public class RegistrarCliente extends javax.swing.JFrame {
-
     /**
      * Creates new form RegistrarCliente
      */
     public RegistrarCliente() {
         initComponents();
+    }
+    
+    public static boolean correoValido(String email) {
+        try {
+           InternetAddress emailAddr = new InternetAddress(email);
+           emailAddr.validate();
+        } catch (AddressException ex) {
+           return false;
+        }
+        return true;
     }
 
     /**
@@ -45,8 +65,8 @@ public class RegistrarCliente extends javax.swing.JFrame {
         fieldDireccion = new javax.swing.JTextField();
         fieldFecha = new javax.swing.JTextField();
         botonVolver = new javax.swing.JButton();
-        fieldSexo = new javax.swing.JTextField();
         botonRegistrar = new javax.swing.JButton();
+        comboSexo = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -74,6 +94,13 @@ public class RegistrarCliente extends javax.swing.JFrame {
         });
 
         botonRegistrar.setText("Registrar");
+        botonRegistrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonRegistrarActionPerformed(evt);
+            }
+        });
+
+        comboSexo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Hombre", "Mujer" }));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -82,28 +109,23 @@ public class RegistrarCliente extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(40, 40, 40)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(115, 115, 115)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel5)
-                            .addComponent(jLabel6)
-                            .addComponent(jLabel8)
-                            .addComponent(jLabel7))
-                        .addGap(14, 14, 14)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
-                            .addComponent(fieldFecha, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(fieldSexo, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(fieldIdentificacion)
-                            .addComponent(fieldNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(fieldCorreo, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(fieldTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(fieldDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                    .addComponent(jLabel3)
+                    .addComponent(jLabel2)
+                    .addComponent(jLabel4)
+                    .addComponent(jLabel5)
+                    .addComponent(jLabel6)
+                    .addComponent(jLabel8)
+                    .addComponent(jLabel7))
+                .addGap(14, 14, 14)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                        .addComponent(fieldFecha, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(fieldIdentificacion)
+                        .addComponent(fieldNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(fieldCorreo, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(fieldTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(fieldDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(comboSexo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(42, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
@@ -111,9 +133,13 @@ public class RegistrarCliente extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(botonRegistrar)
                 .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {fieldCorreo, fieldDireccion, fieldFecha, fieldIdentificacion, fieldNombre, fieldSexo, fieldTelefono});
+        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {fieldCorreo, fieldDireccion, fieldFecha, fieldIdentificacion, fieldNombre, fieldTelefono});
 
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -143,7 +169,7 @@ public class RegistrarCliente extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
-                    .addComponent(fieldSexo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(comboSexo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8)
@@ -163,6 +189,52 @@ public class RegistrarCliente extends javax.swing.JFrame {
         ventanaAdminClientes.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_botonVolverActionPerformed
+
+    private void botonRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonRegistrarActionPerformed
+        int id;
+        String nombre;
+        String correo;
+        int telefono;
+        String direccion;
+        String sexo;
+        String fechaString;
+        ArrayList listaClientes = counter.getListaClientes();
+        
+        id = Integer.parseInt(fieldIdentificacion.getText());
+        nombre = fieldNombre.getText();
+        correo = fieldCorreo.getText();
+        telefono = Integer.parseInt(fieldTelefono.getText());
+        direccion = fieldDireccion.getText();
+        sexo = (String) comboSexo.getSelectedItem();
+        fechaString = fieldFecha.getText();
+        
+        for (int i = 0; i < listaClientes.size(); i++){
+            Cliente cActual = (Cliente) listaClientes.get(i);
+            if (cActual.getIdentificacion() == id){
+                JOptionPane.showMessageDialog(null, "Ya existe un cliente con "
+                        + "esa identificacion", "InfoBox: " + "Alerta", 
+                        JOptionPane.INFORMATION_MESSAGE);
+            }
+        } if (correoValido(correo) && telefono >= 10000000 && telefono <= 99999999){
+            
+            try {
+            
+                Date fecha = new SimpleDateFormat("dd/MM/yyyy").parse(fechaString);
+
+                Cliente nuevoCliente = new Cliente(id, nombre, correo, telefono,
+                    direccion, sexo, fecha);
+
+                counter.agregarCliente(nuevoCliente);
+                
+                JOptionPane.showMessageDialog(null, "Cliente registrado "
+                        + "correctamente", "InfoBox: " + "Alerta", 
+                        JOptionPane.INFORMATION_MESSAGE);
+
+            } catch (ParseException ex) {
+                Logger.getLogger(RegistrarCliente.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }//GEN-LAST:event_botonRegistrarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -205,12 +277,12 @@ public class RegistrarCliente extends javax.swing.JFrame {
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.ButtonGroup buttonGroup2;
     private javax.swing.ButtonGroup buttonGroup3;
+    private javax.swing.JComboBox<String> comboSexo;
     private javax.swing.JTextField fieldCorreo;
     private javax.swing.JTextField fieldDireccion;
     private javax.swing.JTextField fieldFecha;
     private javax.swing.JTextField fieldIdentificacion;
     private javax.swing.JTextField fieldNombre;
-    private javax.swing.JTextField fieldSexo;
     private javax.swing.JTextField fieldTelefono;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

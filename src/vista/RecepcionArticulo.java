@@ -9,12 +9,12 @@ package vista;
  *
  * @author PC
  */
-public class AdminClientes extends javax.swing.JFrame {
+public class RecepcionArticulo extends javax.swing.JFrame {
 
     /**
-     * Creates new form AdminClientes
+     * Creates new form RecepcionArticulo
      */
-    public AdminClientes() {
+    public RecepcionArticulo() {
         initComponents();
     }
 
@@ -27,37 +27,43 @@ public class AdminClientes extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        botonRegistrar = new javax.swing.JButton();
-        botonModificar = new javax.swing.JButton();
-        botonConsultar = new javax.swing.JButton();
-        botonEliminar = new javax.swing.JButton();
-        botonMostrar = new javax.swing.JButton();
-        labelTitulo = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        buttonGroup1 = new javax.swing.ButtonGroup();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        botonSobre = new javax.swing.JButton();
+        botonRevista = new javax.swing.JButton();
+        botonPaquete = new javax.swing.JButton();
         botonVolver = new javax.swing.JButton();
+
+        jLabel4.setText("jLabel4");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        botonRegistrar.setText("Registrar cliente");
-        botonRegistrar.addActionListener(new java.awt.event.ActionListener() {
+        jLabel1.setText("Recepción de articulos");
+
+        jLabel3.setText("Seleccione el tipo de articulo a registrar");
+
+        botonSobre.setText("Sobre");
+        botonSobre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botonRegistrarActionPerformed(evt);
+                botonSobreActionPerformed(evt);
             }
         });
 
-        botonModificar.setText("Modificar cliente");
-
-        botonConsultar.setText("Consultar cliente");
-        botonConsultar.addActionListener(new java.awt.event.ActionListener() {
+        botonRevista.setText("Revista");
+        botonRevista.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botonConsultarActionPerformed(evt);
+                botonRevistaActionPerformed(evt);
             }
         });
 
-        botonEliminar.setText("Eliminar cliente");
-
-        botonMostrar.setText("Mostrar clientes");
-
-        labelTitulo.setText("Menu administración de clientes");
+        botonPaquete.setText("Paquete");
+        botonPaquete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonPaqueteActionPerformed(evt);
+            }
+        });
 
         botonVolver.setText("Volver");
         botonVolver.addActionListener(new java.awt.event.ActionListener() {
@@ -71,46 +77,39 @@ public class AdminClientes extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(97, Short.MAX_VALUE)
+                .addGap(56, 56, 56)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
-                    .addComponent(botonConsultar)
-                    .addComponent(botonEliminar)
-                    .addComponent(botonMostrar)
-                    .addComponent(labelTitulo)
                     .addComponent(botonVolver)
-                    .addComponent(botonRegistrar)
-                    .addComponent(botonModificar))
-                .addGap(77, 77, 77))
+                    .addComponent(jLabel1)
+                    .addComponent(jLabel3)
+                    .addComponent(botonSobre)
+                    .addComponent(botonRevista)
+                    .addComponent(botonPaquete))
+                .addContainerGap(54, Short.MAX_VALUE))
         );
 
-        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {botonConsultar, botonEliminar, botonModificar, botonMostrar, botonRegistrar});
+        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {botonPaquete, botonRevista, botonSobre, botonVolver});
 
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(labelTitulo)
-                .addGap(18, 18, 18)
-                .addComponent(botonRegistrar)
+                .addContainerGap(14, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addGap(29, 29, 29)
+                .addComponent(jLabel3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(botonSobre)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(botonModificar)
+                .addComponent(botonRevista)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(botonConsultar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(botonEliminar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(botonMostrar)
+                .addComponent(botonPaquete)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(botonVolver)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(23, 23, 23))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void botonConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonConsultarActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_botonConsultarActionPerformed
 
     private void botonVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonVolverActionPerformed
         MenuPrincipal ventanaMenu = new MenuPrincipal();
@@ -118,11 +117,23 @@ public class AdminClientes extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_botonVolverActionPerformed
 
-    private void botonRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonRegistrarActionPerformed
-        RegistrarCliente ventanaRegistrar = new RegistrarCliente();
-        ventanaRegistrar.setVisible(true);
+    private void botonSobreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonSobreActionPerformed
+        RecepcionSobre ventanaSobre = new RecepcionSobre();
+        ventanaSobre.setVisible(true);
         this.setVisible(false);
-    }//GEN-LAST:event_botonRegistrarActionPerformed
+    }//GEN-LAST:event_botonSobreActionPerformed
+
+    private void botonRevistaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonRevistaActionPerformed
+        RecepcionRevista ventanaRevista = new RecepcionRevista();
+        ventanaRevista.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_botonRevistaActionPerformed
+
+    private void botonPaqueteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonPaqueteActionPerformed
+        RecepcionPaquete ventanaPaquete = new RecepcionPaquete();
+        ventanaPaquete.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_botonPaqueteActionPerformed
 
     /**
      * @param args the command line arguments
@@ -141,31 +152,32 @@ public class AdminClientes extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(AdminClientes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(RecepcionArticulo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(AdminClientes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(RecepcionArticulo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(AdminClientes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(RecepcionArticulo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(AdminClientes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(RecepcionArticulo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new AdminClientes().setVisible(true);
+                new RecepcionArticulo().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton botonConsultar;
-    private javax.swing.JButton botonEliminar;
-    private javax.swing.JButton botonModificar;
-    private javax.swing.JButton botonMostrar;
-    private javax.swing.JButton botonRegistrar;
+    private javax.swing.JButton botonPaquete;
+    private javax.swing.JButton botonRevista;
+    private javax.swing.JButton botonSobre;
     private javax.swing.JButton botonVolver;
-    private javax.swing.JLabel labelTitulo;
+    private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     // End of variables declaration//GEN-END:variables
 }

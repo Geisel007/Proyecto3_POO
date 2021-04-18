@@ -17,7 +17,7 @@ public class Sobre extends Entregable {
     
     public Sobre(){}
     
-    public Sobre(String descripcion, Cliente remitente, String pTipo, 
+    public Sobre(String descripcion, int remitente, String pTipo, 
             String pContenido, int pPeso){
         
         super(descripcion, remitente);

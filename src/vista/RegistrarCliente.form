@@ -34,32 +34,25 @@
           <Group type="102" attributes="0">
               <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
-                      <EmptySpace min="115" pref="115" max="-2" attributes="0"/>
-                      <Component id="jLabel1" max="32767" attributes="0"/>
+                  <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabel4" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabel5" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabel6" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabel8" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabel7" alignment="0" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="14" pref="14" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="103" groupAlignment="2" attributes="0">
+                      <Component id="fieldFecha" linkSize="1" alignment="2" min="-2" pref="79" max="-2" attributes="0"/>
+                      <Component id="fieldIdentificacion" linkSize="1" alignment="2" max="32767" attributes="0"/>
+                      <Component id="fieldNombre" linkSize="1" alignment="2" min="-2" pref="163" max="-2" attributes="0"/>
+                      <Component id="fieldCorreo" linkSize="1" alignment="2" min="-2" pref="163" max="-2" attributes="0"/>
+                      <Component id="fieldTelefono" linkSize="1" alignment="2" min="-2" pref="80" max="-2" attributes="0"/>
+                      <Component id="fieldDireccion" linkSize="1" alignment="2" min="-2" pref="202" max="-2" attributes="0"/>
                   </Group>
-                  <Group type="102" attributes="0">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel4" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel5" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel6" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel8" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel7" alignment="0" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="2" attributes="0">
-                          <Component id="fieldFecha" linkSize="1" alignment="2" min="-2" pref="79" max="-2" attributes="0"/>
-                          <Component id="fieldSexo" linkSize="1" alignment="2" min="-2" pref="198" max="-2" attributes="0"/>
-                          <Component id="fieldIdentificacion" linkSize="1" alignment="2" max="32767" attributes="0"/>
-                          <Component id="fieldNombre" linkSize="1" alignment="2" min="-2" pref="163" max="-2" attributes="0"/>
-                          <Component id="fieldCorreo" linkSize="1" alignment="2" min="-2" pref="163" max="-2" attributes="0"/>
-                          <Component id="fieldTelefono" linkSize="1" alignment="2" min="-2" pref="80" max="-2" attributes="0"/>
-                          <Component id="fieldDireccion" linkSize="1" alignment="2" min="-2" pref="202" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                  </Group>
+                  <Component id="comboSexo" alignment="0" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace pref="42" max="32767" attributes="0"/>
           </Group>
@@ -69,6 +62,11 @@
               <EmptySpace max="32767" attributes="0"/>
               <Component id="botonRegistrar" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
+          </Group>
+          <Group type="102" alignment="1" attributes="0">
+              <EmptySpace max="32767" attributes="0"/>
+              <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -105,7 +103,7 @@
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel7" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="fieldSexo" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="comboSexo" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -183,12 +181,26 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botonVolverActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JTextField" name="fieldSexo">
-    </Component>
     <Component class="javax.swing.JButton" name="botonRegistrar">
       <Properties>
         <Property name="text" type="java.lang.String" value="Registrar"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botonRegistrarActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JComboBox" name="comboSexo">
+      <Properties>
+        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+          <StringArray count="2">
+            <StringItem index="0" value="Hombre"/>
+            <StringItem index="1" value="Mujer"/>
+          </StringArray>
+        </Property>
+      </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+      </AuxValues>
     </Component>
   </SubComponents>
 </Form>

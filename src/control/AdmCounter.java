@@ -123,6 +123,27 @@ public class AdmCounter {
         System.out.println("No hay casilleros disponibles");
     }
     
+    public void retirarArticulo(int cedulaJuridica, int identificacion){
+        Counter counter = consultar(cedulaJuridica);
+        ArrayList listaClientes = counter.getListaClientes();
+        ArrayList listaCasilleros = counter.getListaCasilleros();
+        
+        for (int i = 0; i < listaClientes.size(); i++){
+            Cliente clienteActual = (Cliente) listaClientes.get(i);
+            if (clienteActual.getIdentificacion() == identificacion){
+                
+                int numCasillero = clienteActual.getNumeroCasillero();
+                for (int j = 0; j < listaCasilleros.size(); j++){
+                    Casillero casilleroActual = (Casillero) listaCasilleros.get(i);
+                    if (casilleroActual.getNumero() == numCasillero){
+                        casilleroActual.mostrarEntregablesPendientes();
+                    }
+                }
+            }
+            
+        }
+    }
+    
     @Override
     public String toString() {
         return "Counters Registrados:\n" + listaCounters ;

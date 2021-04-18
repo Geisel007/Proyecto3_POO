@@ -5,12 +5,18 @@
  */
 package vista;
 
+import javax.swing.JOptionPane;
+import modelo.Counter;
+
+
+
 /**
  *
- * @author PC
+ * @author IanSamuels
  */
 public class CrearCounter extends javax.swing.JFrame {
-
+    
+    public static Counter counter;
     /**
      * Creates new form CrearCounter
      */
@@ -36,7 +42,6 @@ public class CrearCounter extends javax.swing.JFrame {
         fieldCedula = new javax.swing.JTextField();
         fieldDireccion = new javax.swing.JTextField();
         fieldCasilleros = new javax.swing.JTextField();
-        botonVolver = new javax.swing.JButton();
         botonCrear = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -69,21 +74,19 @@ public class CrearCounter extends javax.swing.JFrame {
             }
         });
 
-        botonVolver.setText("Volver");
-        botonVolver.addActionListener(new java.awt.event.ActionListener() {
+        botonCrear.setText("Crear");
+        botonCrear.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botonVolverActionPerformed(evt);
+                botonCrearActionPerformed(evt);
             }
         });
-
-        botonCrear.setText("Crear");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(50, 50, 50)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
@@ -93,16 +96,14 @@ public class CrearCounter extends javax.swing.JFrame {
                             .addComponent(labelCasilleros))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(botonCrear)
                             .addComponent(fieldDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(fieldCasilleros, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(fieldCedula, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(fieldNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(labelTitulo)))
+                            .addComponent(fieldNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(49, 49, 49)
-                        .addComponent(botonVolver)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(botonCrear)))
+                        .addGap(152, 152, 152)
+                        .addComponent(labelTitulo)))
                 .addContainerGap(50, Short.MAX_VALUE))
         );
 
@@ -111,9 +112,9 @@ public class CrearCounter extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(31, 31, 31)
-                .addComponent(labelTitulo)
                 .addGap(43, 43, 43)
+                .addComponent(labelTitulo)
+                .addGap(31, 31, 31)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(labelNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(fieldNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -129,11 +130,9 @@ public class CrearCounter extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(labelCasilleros)
                     .addComponent(fieldCasilleros, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(botonVolver)
-                    .addComponent(botonCrear))
-                .addGap(26, 26, 26))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
+                .addComponent(botonCrear)
+                .addGap(25, 25, 25))
         );
 
         pack();
@@ -151,11 +150,29 @@ public class CrearCounter extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_fieldDireccionActionPerformed
 
-    private void botonVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonVolverActionPerformed
+    private void botonCrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonCrearActionPerformed
+        String nombre;
+        int cedula;
+        String direccion;
+        int cantidadCasilleros;
+        
+        nombre = fieldNombre.getText();
+        cedula = Integer.parseInt(fieldCedula.getText());
+        direccion = fieldDireccion.getText();
+        cantidadCasilleros = Integer.parseInt(fieldCasilleros.getText());
+        
+        counter = new Counter(nombre, cedula, direccion, cantidadCasilleros);
+        System.out.println("Nombre: " + nombre);
+        System.out.println("Cedula: " + cedula);
+        System.out.println("Direccion: " + direccion);
+        System.out.println("Cantidad de casilleros: " + cantidadCasilleros);
+        JOptionPane.showMessageDialog(null, "Se ha creado el counter",
+                "InfoBox: " + "Alerta", JOptionPane.INFORMATION_MESSAGE);
+        
         MenuPrincipal ventanaMenu = new MenuPrincipal();
         ventanaMenu.setVisible(true);
         this.setVisible(false);
-    }//GEN-LAST:event_botonVolverActionPerformed
+    }//GEN-LAST:event_botonCrearActionPerformed
 
     /**
      * @param args the command line arguments
@@ -194,7 +211,6 @@ public class CrearCounter extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botonCrear;
-    private javax.swing.JButton botonVolver;
     private javax.swing.JTextField fieldCasilleros;
     private javax.swing.JTextField fieldCedula;
     private javax.swing.JTextField fieldDireccion;

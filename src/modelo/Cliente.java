@@ -114,8 +114,8 @@ public class Cliente {
         this.numeroCasillero = numeroCasillero;
     }
     
-    public void registrarSobre(int codigo, boolean estado, String descripcion, 
-            Cliente remitente, String pTipo, String pContenido, int pPeso){
+    public void registrarSobre(String descripcion, int remitente, 
+            String pTipo, String pContenido, int pPeso){
         
         if (tipo.equals("aereo") || tipo.equals("manila")){
             
@@ -142,7 +142,7 @@ public class Cliente {
         } 
     }
     
-    public void registrarRevista(String descripcion,Cliente remitente, String pNombre, 
+    public void registrarRevista(String descripcion, int remitente, String pNombre, 
             boolean pCatalogo, String pTema){
         
         ArrayList listaCasilleros = Counter.getListaCasilleros();
@@ -161,7 +161,7 @@ public class Cliente {
         }
     }
     
-    public void registrarPaquete(String descripcion,Cliente remitente, String pTipo, 
+    public void registrarPaquete(String descripcion, int remitente, String pTipo, 
             boolean pContenidoElectronico, boolean pFragil, int pPeso){
         
         ArrayList listaCasilleros = Counter.getListaCasilleros();

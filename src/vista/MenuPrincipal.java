@@ -27,7 +27,6 @@ public class MenuPrincipal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        botonCrearCounter = new javax.swing.JButton();
         botonAdmClientes = new javax.swing.JButton();
         botonRecepcion = new javax.swing.JButton();
         botonRetiro = new javax.swing.JButton();
@@ -40,13 +39,6 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        botonCrearCounter.setText("Crear Counter");
-        botonCrearCounter.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botonCrearCounterActionPerformed(evt);
-            }
-        });
-
         botonAdmClientes.setText("Administracion de clientes");
         botonAdmClientes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -55,6 +47,11 @@ public class MenuPrincipal extends javax.swing.JFrame {
         });
 
         botonRecepcion.setText("Recepción de articulos");
+        botonRecepcion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonRecepcionActionPerformed(evt);
+            }
+        });
 
         botonRetiro.setText("Retiro de articulos");
 
@@ -85,7 +82,6 @@ public class MenuPrincipal extends javax.swing.JFrame {
                     .addComponent(botonTipoDeCambio)
                     .addComponent(botonPendientes)
                     .addComponent(botonReporte)
-                    .addComponent(botonCrearCounter)
                     .addComponent(botonAdmClientes)
                     .addComponent(botonRecepcion)
                     .addComponent(botonRetiro)
@@ -95,16 +91,14 @@ public class MenuPrincipal extends javax.swing.JFrame {
                 .addGap(77, 77, 77))
         );
 
-        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {botonAdmClientes, botonAdmEntregables, botonCrearCounter, botonPendientes, botonRecepcion, botonReporte, botonRetiro, botonTipoDeCambio});
+        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {botonAdmClientes, botonAdmEntregables, botonPendientes, botonRecepcion, botonReporte, botonRetiro, botonTipoDeCambio});
 
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(29, 29, 29)
                 .addComponent(labelTitulo)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(botonCrearCounter)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(18, 18, 18)
                 .addComponent(botonAdmClientes)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(botonRecepcion)
@@ -120,17 +114,11 @@ public class MenuPrincipal extends javax.swing.JFrame {
                 .addComponent(botonReporte)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(botonSalir)
-                .addContainerGap(22, Short.MAX_VALUE))
+                .addContainerGap(44, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void botonCrearCounterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonCrearCounterActionPerformed
-        CrearCounter ventanaCrearCounter = new CrearCounter();
-        ventanaCrearCounter.setVisible(true);
-        this.setVisible(false);
-    }//GEN-LAST:event_botonCrearCounterActionPerformed
 
     private void botonAdmClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonAdmClientesActionPerformed
         AdminClientes ventanaAdmClientes = new AdminClientes();
@@ -141,6 +129,12 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private void botonSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonSalirActionPerformed
         this.setVisible(false);
     }//GEN-LAST:event_botonSalirActionPerformed
+
+    private void botonRecepcionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonRecepcionActionPerformed
+        RecepcionArticulo ventanaRecepcion = new RecepcionArticulo();
+        ventanaRecepcion.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_botonRecepcionActionPerformed
 
     /**
      * @param args the command line arguments
@@ -180,7 +174,6 @@ public class MenuPrincipal extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botonAdmClientes;
     private javax.swing.JButton botonAdmEntregables;
-    private javax.swing.JButton botonCrearCounter;
     private javax.swing.JButton botonPendientes;
     private javax.swing.JButton botonRecepcion;
     private javax.swing.JButton botonReporte;
