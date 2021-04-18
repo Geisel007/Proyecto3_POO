@@ -26,7 +26,7 @@ public class RegistrarCliente extends javax.swing.JFrame {
      * Creates new form RegistrarCliente
      */
     
-    public Controlador CONTROLADOR;
+    private Controlador CONTROLADOR;
     
     public RegistrarCliente(Controlador CONTROLADOR) {
         initComponents();

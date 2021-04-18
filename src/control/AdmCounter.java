@@ -151,5 +151,8 @@ public class AdmCounter {
     public String toString() {
         return "Counters Registrados:\n" + listaCounters ;
     }
-    
+
+    public ArrayList<Counter> getListaCounters() {
+        return listaCounters;
+    }    
 }

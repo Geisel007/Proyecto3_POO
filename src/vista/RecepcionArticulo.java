@@ -5,6 +5,8 @@
  */
 package vista;
 
+import control.Controlador;
+
 /**
  *
  * @author PC
@@ -14,6 +16,13 @@ public class RecepcionArticulo extends javax.swing.JFrame {
     /**
      * Creates new form RecepcionArticulo
      */
+    private Controlador CONTROLADOR;
+
+    public RecepcionArticulo(Controlador CONTROLADOR) {
+        initComponents();
+        this.CONTROLADOR = CONTROLADOR;
+    }
+    
     public RecepcionArticulo() {
         initComponents();
     }
@@ -118,19 +127,19 @@ public class RecepcionArticulo extends javax.swing.JFrame {
     }//GEN-LAST:event_botonVolverActionPerformed
 
     private void botonSobreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonSobreActionPerformed
-        RecepcionSobre ventanaSobre = new RecepcionSobre();
+        RecepcionSobre ventanaSobre = new RecepcionSobre(CONTROLADOR);
         ventanaSobre.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_botonSobreActionPerformed
 
     private void botonRevistaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonRevistaActionPerformed
-        RecepcionRevista ventanaRevista = new RecepcionRevista();
+        RecepcionRevista ventanaRevista = new RecepcionRevista(CONTROLADOR);
         ventanaRevista.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_botonRevistaActionPerformed
 
     private void botonPaqueteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonPaqueteActionPerformed
-        RecepcionPaquete ventanaPaquete = new RecepcionPaquete();
+        RecepcionPaquete ventanaPaquete = new RecepcionPaquete(CONTROLADOR);
         ventanaPaquete.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_botonPaqueteActionPerformed

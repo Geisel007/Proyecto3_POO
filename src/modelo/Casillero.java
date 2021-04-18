@@ -39,15 +39,17 @@ public class Casillero {
         return listaEntregables;
     }
     
-    public void agregarEntregable(Entregable entregable){
+    public boolean agregarEntregable(Entregable entregable){
         for (int i = 0; i < listaEntregables.size(); i++) {
             Entregable eActual = listaEntregables.get(i);
             if (eActual.equals(entregable)){
-                System.out.println("El entregable ingresado ya existe");;
+                System.out.println("El entregable ingresado ya existe");
+                return false;
             }            
         }
         listaEntregables.add(entregable);
-        System.out.println("Entregable registrado correctamente");;
+        System.out.println("Entregable registrado correctamente");
+        return true;
     }
     
     public void mostrarEntregablesPendientes(){

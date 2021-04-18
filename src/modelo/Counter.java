@@ -87,11 +87,11 @@ public class Counter {
         for (int i = 0; i < listaClientes.size(); i++) {
             Cliente cActual = listaClientes.get(i);
             if (cActual.equals(cliente)){
-                System.out.println("El cliente ingresado ya existe");;
+                System.out.println("El cliente ingresado ya existe");
             }            
         }
         listaClientes.add(cliente);
-        System.out.println("Cliente registrado correctamente");;
+        System.out.println("Cliente registrado correctamente");
     }
 
     @Override

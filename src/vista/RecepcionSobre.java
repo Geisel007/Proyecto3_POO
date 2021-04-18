@@ -6,6 +6,10 @@
 
 package vista;
 
+import control.Controlador;
+import javax.swing.JOptionPane;
+import modelo.Cliente;
+
 /**
  *
  * @author PC
@@ -13,6 +17,13 @@ package vista;
 public class RecepcionSobre extends javax.swing.JFrame {
 
     /** Creates new form RecepcionSobre */
+    
+    private Controlador CONTROLADOR;
+
+    public RecepcionSobre(Controlador CONTROLADOR) {
+        this.CONTROLADOR = CONTROLADOR;
+    }
+    
     public RecepcionSobre() {
         initComponents();
     }
@@ -60,12 +71,23 @@ public class RecepcionSobre extends javax.swing.JFrame {
         });
 
         botonRegistrar.setText("Registrar");
+        botonRegistrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonRegistrarActionPerformed(evt);
+            }
+        });
 
         comboTipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Manila", "Aereo" }));
 
         comboContenido.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Documentacion", "Otros" }));
 
         jLabel6.setText("Identificación cliente:");
+
+        fieldCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                fieldClienteActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -144,6 +166,25 @@ public class RecepcionSobre extends javax.swing.JFrame {
         ventanaRecepcion.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_botonVolverActionPerformed
+
+    private void botonRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonRegistrarActionPerformed
+        int id = Integer.parseInt(fieldCliente.getText());
+        String descripcion = fieldDesc.getText();
+        int peso =  Integer.parseInt(fieldPeso.getText());
+        String tipo = (String)comboContenido.getSelectedItem();
+        String contenido = (String)comboTipo.getSelectedItem();
+        
+        Cliente cliente = CONTROLADOR.consultarCliente(id);
+        if(cliente != null){
+            CONTROLADOR.agregarEntregable(cliente.getNumeroCasillero(),  id, descripcion, peso, tipo, contenido);
+        } else {
+            JOptionPane.showMessageDialog(null,"El cliente no existe", "Error",JOptionPane.WARNING_MESSAGE);
+        }
+    }//GEN-LAST:event_botonRegistrarActionPerformed
+
+    private void fieldClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fieldClienteActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_fieldClienteActionPerformed
 
     /**
      * @param args the command line arguments

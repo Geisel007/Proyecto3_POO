@@ -149,6 +149,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Registrar"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botonRegistrarActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JComboBox" name="comboTipo">
       <Properties>
@@ -182,6 +185,9 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="fieldCliente">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="fieldClienteActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>
