@@ -6,6 +6,7 @@
 package modelo;
 
 import java.util.ArrayList;
+import java.util.Date;
 
 /**
  *
@@ -92,6 +93,80 @@ public class Counter {
         }
         listaClientes.add(cliente);
         System.out.println("Cliente registrado correctamente");
+    }
+    
+    public void registrarCliente(int identificacion, String nombre, 
+            String correo, int telefono, String direccion, 
+            String sexo, Date fechaDeNacimiento){
+        
+        if (!clienteExiste(listaClientes, identificacion)){
+           
+            if (buscarCasilleroLibre(listaCasilleros)){
+                
+                Cliente cliente = new Cliente(identificacion, nombre, correo, 
+                        telefono, direccion, sexo, fechaDeNacimiento);
+                
+                setCasilleroLibre(listaCasilleros, cliente);
+                
+            } else {
+                System.out.println("No se encontró ningún casillero libre");
+            }
+        } else {
+            System.out.println("La cedula identificacion ingresada ya existe");
+        }
+    }
+    
+    public boolean clienteExiste(ArrayList listaClientes, int identificacion){
+        for (int i = 0; i < listaClientes.size(); i++){
+            Cliente cActual = (Cliente) listaClientes.get(i);
+            if (cActual.getIdentificacion() == identificacion){
+                return true;
+            }
+        }
+        return false;
+    }
+    
+    public boolean buscarCasilleroLibre(ArrayList listaCasilleros){
+        for (int i = 0; i < listaCasilleros.size(); i++){
+            Casillero cActual = (Casillero) listaCasilleros.get(i);
+            if (cActual.getCedulaCliente() == -1){
+                return true;
+            }
+        }
+        return false;
+    }
+    
+    public void setCasilleroLibre(ArrayList listaCasilleros, Cliente cliente){
+        for (int i = 0; i < listaCasilleros.size(); i++){
+            Casillero cActual = (Casillero) listaCasilleros.get(i);
+            
+            if (cActual.getCedulaCliente() == -1){
+                
+                cActual.setCedulaCliente(cliente.getIdentificacion());
+                cliente.setNumeroCasillero(cActual.getNumero());
+                System.out.println("Numero de casillero asignado: "
+                        + cActual.getNumero());
+            }
+        }
+        System.out.println("No hay casilleros disponibles");
+    }
+    
+    public void retirarArticulo(int identificacion){
+        
+        for (int i = 0; i < listaClientes.size(); i++){
+            Cliente clienteActual = (Cliente) listaClientes.get(i);
+            if (clienteActual.getIdentificacion() == identificacion){
+                
+                int numCasillero = clienteActual.getNumeroCasillero();
+                for (int j = 0; j < listaCasilleros.size(); j++){
+                    Casillero casilleroActual = (Casillero) listaCasilleros.get(i);
+                    if (casilleroActual.getNumero() == numCasillero){
+                        casilleroActual.mostrarEntregablesPendientes();
+                    }
+                }
+            }
+            
+        }
     }
 
     @Override

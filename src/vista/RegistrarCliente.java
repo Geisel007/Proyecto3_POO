@@ -231,10 +231,11 @@ public class RegistrarCliente extends javax.swing.JFrame {
             
                 Date fecha = new SimpleDateFormat("dd/MM/yyyy").parse(fechaString);
 
-                Cliente nuevoCliente = new Cliente(id, nombre, correo, telefono,
-                    direccion, sexo, fecha);
+                /*Cliente nuevoCliente = new Cliente(id, nombre, correo, telefono,
+                    direccion, sexo, fecha);*/
 
-                counter.agregarCliente(nuevoCliente);
+                CONTROLADOR.agregarCliente(id, nombre, correo, telefono,
+                    direccion, sexo, fecha);
                 
                 JOptionPane.showMessageDialog(null, "Cliente registrado "
                         + "correctamente", "InfoBox: " + "Alerta", 

@@ -66,8 +66,8 @@ public class AdmCounter {
         System.out.println("No existe el counter ingresado");
     }
     
-    public void registrarCliente(int cedulaJuridica, int identificacion, 
-            String nombre, String correo, int telefono, String direccion, 
+    public void registrarCliente(int cedulaJuridica, int identificacion, String nombre, 
+            String correo, int telefono, String direccion, 
             String sexo, Date fechaDeNacimiento){
         
         Counter counter = consultar(cedulaJuridica);

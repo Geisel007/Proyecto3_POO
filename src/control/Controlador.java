@@ -21,7 +21,8 @@ public class Controlador {
     
     public boolean agregarCliente(int identificacion, String nombre, String correo, int telefono, String direccion, String sexo, 
                         Date fechaDeNacimiento){
-        return admClientes.agregar(identificacion, nombre, correo, telefono, direccion, sexo, fechaDeNacimiento);//agregar registro dentro del counter
+        return admClientes.agregar(identificacion, nombre, correo, 
+                telefono, direccion, sexo, fechaDeNacimiento);//agregar registro dentro del counter
     }
     
     public boolean eliminarCliente(Cliente cliente){
