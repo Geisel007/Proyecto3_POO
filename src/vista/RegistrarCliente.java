@@ -16,6 +16,7 @@ import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
 import javax.swing.JOptionPane;
 import modelo.Cliente;
+import modelo.Counter;
 import static vista.CrearCounter.counter;
 /**
  *
@@ -44,6 +45,27 @@ public class RegistrarCliente extends javax.swing.JFrame {
         } catch (AddressException ex) {
            return false;
         }
+        return true;
+    }
+    
+    public boolean datosValidos(int id, int telefono, String correo){
+        ArrayList<Cliente> listaClientes;// = counter.getListaClientes();
+        listaClientes = CONTROLADOR.getClientes();
+        
+        for (int i = 0; i < listaClientes.size(); i++){
+        Cliente cActual = (Cliente) listaClientes.get(i);
+        
+            if (cActual.getIdentificacion() == id || cActual.getCorreo().equals(correo)
+                || cActual.getTelefono() == telefono){
+
+                JOptionPane.showMessageDialog(null, "Ya existe un cliente con "
+                + "esa información", "InfoBox: " + "Alerta", JOptionPane.INFORMATION_MESSAGE);
+                
+                System.out.println("falso");
+                return false;
+            }
+        }
+        System.out.println("true");
         return true;
     }
 
@@ -207,8 +229,6 @@ public class RegistrarCliente extends javax.swing.JFrame {
         String direccion;
         String sexo;
         String fechaString;
-        ArrayList<Cliente> listaClientes;// = counter.getListaClientes();
-        listaClientes = CONTROLADOR.getClientes();
         
         id = Integer.parseInt(fieldIdentificacion.getText());
         nombre = fieldNombre.getText();
@@ -218,32 +238,31 @@ public class RegistrarCliente extends javax.swing.JFrame {
         sexo = (String) comboSexo.getSelectedItem();
         fechaString = fieldFecha.getText();
         
-        for (int i = 0; i < listaClientes.size(); i++){
-            Cliente cActual = (Cliente) listaClientes.get(i);
-            if (cActual.getIdentificacion() == id){
-                JOptionPane.showMessageDialog(null, "Ya existe un cliente con "
-                        + "esa identificacion", "InfoBox: " + "Alerta", 
-                        JOptionPane.INFORMATION_MESSAGE);
-            }
-        } if (correoValido(correo) && telefono >= 10000000 && telefono <= 99999999){
+        if (datosValidos(id, telefono, correo)){
             
-            try {
-            
-                Date fecha = new SimpleDateFormat("dd/MM/yyyy").parse(fechaString);
+            if (correoValido(correo) && telefono >= 10000000 && telefono <= 99999999){
 
-                /*Cliente nuevoCliente = new Cliente(id, nombre, correo, telefono,
-                    direccion, sexo, fecha);*/
+                try {
 
-                CONTROLADOR.agregarCliente(id, nombre, correo, telefono,
-                    direccion, sexo, fecha);
-                
-                JOptionPane.showMessageDialog(null, "Cliente registrado "
-                        + "correctamente", "InfoBox: " + "Alerta", 
-                        JOptionPane.INFORMATION_MESSAGE);
+                    Date fecha = new SimpleDateFormat("dd/MM/yyyy").parse(fechaString);
 
-            } catch (ParseException ex) {
-                Logger.getLogger(RegistrarCliente.class.getName()).log(Level.SEVERE, null, ex);
+                    counter.registrarCliente(id, nombre, correo, telefono,
+                        direccion, sexo, fecha);
+
+                    JOptionPane.showMessageDialog(null, "Cliente registrado "
+                            + "correctamente", "InfoBox: " + "Alerta", 
+                            JOptionPane.INFORMATION_MESSAGE);
+
+                } catch (ParseException ex) {
+                    Logger.getLogger(RegistrarCliente.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            } else {
+                JOptionPane.showMessageDialog(null, "Datos ingresados invalidos"
+                        , "InfoBox: " + "Alerta", JOptionPane.INFORMATION_MESSAGE);
             }
+        } else {
+            JOptionPane.showMessageDialog(null, "Datos ingresados ya existen"
+                        , "InfoBox: " + "Alerta", JOptionPane.INFORMATION_MESSAGE);
         }
     }//GEN-LAST:event_botonRegistrarActionPerformed
 

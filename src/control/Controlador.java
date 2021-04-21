@@ -4,6 +4,7 @@ package control;
 import java.util.ArrayList;
 import java.util.Date;
 import modelo.Cliente;
+import modelo.Counter;
 import modelo.Entregable;
 
 /**
@@ -11,18 +12,37 @@ import modelo.Entregable;
  */
 public class Controlador {
     
+    public static Counter counter;
+    
     private AdmClientes admClientes = new AdmClientes();
-    private AdmCounter admCounter = new AdmCounter();
 
-    public boolean crearCounter(String pNombre, int pCedulaJuridica, String pDireccion, 
+    public void crearCounter(String pNombre, int pCedulaJuridica, String pDireccion, 
             int pCantidadDeCasilleros){
-        return admCounter.agregar(pNombre, pCedulaJuridica, pDireccion, pCantidadDeCasilleros);
+        
+        Counter nuevoCounter = new Counter(pNombre, pCedulaJuridica, 
+                pDireccion, pCantidadDeCasilleros);
+        
+        counter = nuevoCounter;
     }
     
-    public boolean agregarCliente(int identificacion, String nombre, String correo, int telefono, String direccion, String sexo, 
+    public boolean agregarCliente(int identificacion, String nombre, 
+            String correo, int telefono, String direccion, String sexo, 
                         Date fechaDeNacimiento){
+        
         return admClientes.agregar(identificacion, nombre, correo, 
                 telefono, direccion, sexo, fechaDeNacimiento);//agregar registro dentro del counter
+    }
+    
+    public void registrarCliente(int identificacion, String nombre, 
+            String correo, int telefono, String direccion, String sexo, 
+                        Date fechaDeNacimiento){
+        
+        counter.registrarCliente(identificacion, nombre, correo,telefono, 
+                direccion, sexo, fechaDeNacimiento);//agregar registro dentro del counter
+    }
+    
+    public boolean modificarCliente(Cliente cliente){
+        return admClientes.modificar(cliente);
     }
     
     public boolean eliminarCliente(Cliente cliente){
@@ -63,10 +83,6 @@ public class Controlador {
 
     public ArrayList<Cliente> getClientes() {
         return admClientes.getListaClientes();
-    }
-
-    public AdmCounter getAdmCounter() {
-        return admCounter;
     }
        
 }

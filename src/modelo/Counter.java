@@ -7,6 +7,7 @@ package modelo;
 
 import java.util.ArrayList;
 import java.util.Date;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -109,10 +110,12 @@ public class Counter {
                 setCasilleroLibre(listaCasilleros, cliente);
                 
             } else {
-                System.out.println("No se encontró ningún casillero libre");
+                JOptionPane.showMessageDialog(null, "No se encontró un casillero"
+                + "libre", "InfoBox: " + "Alerta", JOptionPane.INFORMATION_MESSAGE);
             }
         } else {
-            System.out.println("La cedula identificacion ingresada ya existe");
+            JOptionPane.showMessageDialog(null, "La cedula ingresada ya existe",
+                    "InfoBox: " + "Alerta", JOptionPane.INFORMATION_MESSAGE);
         }
     }
     
@@ -144,8 +147,9 @@ public class Counter {
                 
                 cActual.setCedulaCliente(cliente.getIdentificacion());
                 cliente.setNumeroCasillero(cActual.getNumero());
-                System.out.println("Numero de casillero asignado: "
-                        + cActual.getNumero());
+                
+                System.out.println("Numero de casillero: " + cActual.getNumero());
+                       
             }
         }
         System.out.println("No hay casilleros disponibles");
