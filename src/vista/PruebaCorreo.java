@@ -5,6 +5,9 @@
  */
 package vista;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import modelo.Mailer;
 
 /**
@@ -13,8 +16,10 @@ import modelo.Mailer;
  */
 public class PruebaCorreo {
     
-    public static void main(String[] args) {
-        
-        Mailer.sendMail("friedsofa@gmail.com", "Ian");
+    public static void main(String[] args) throws ParseException {
+        Date fecha = new Date();
+        SimpleDateFormat fechaPara = new SimpleDateFormat("dd/MM/yyyy");
+        String fechaString = fechaPara.format(fecha);
+        System.out.println(fechaString);
     }
 }

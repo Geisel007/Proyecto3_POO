@@ -18,15 +18,13 @@ public class Paquete extends Entregable {
     
     public Paquete(){}
     
-    public Paquete(String descripcion, 
-            int remitente, String pTipo, boolean pContenidoElectronico, 
-            boolean pFragil, int pPeso){
-        
-        super(descripcion, remitente);
-        pTipo = tipo;
-        pContenidoElectronico = contenidoElectronico;
-        pFragil = fragil;
-        pPeso = peso;
+    public Paquete(String pDescripcion, int pDestinatario, String tipo, boolean contenidoElectronico, 
+            boolean fragil, int peso ) {
+        super(pDescripcion, pDestinatario);
+        this.tipo = tipo;
+        this.contenidoElectronico = contenidoElectronico;
+        this.fragil = fragil;
+        this.peso = peso;
     }
 
     public String getTipo() {
@@ -60,6 +58,26 @@ public class Paquete extends Entregable {
     public void setPeso(int peso) {
         this.peso = peso;
     }
-    
+
+    @Override
+    public String toString() {
+        if(contenidoElectronico && fragil){
+            return "Paquete " +  " Código: " + super.codigo + ", Tipo: " + tipo + ", Descripción: " + super.descripcion  +
+                ", Destinatario: " + super.destinatario +", Contenido Electronico: Sí" + ", Frágil: Sí" + 
+                ", Peso: " + peso + '.' +"\n";
+        } if(contenidoElectronico && (fragil == false)){
+            return "Paquete " +  " Código: " + super.codigo + ", Tipo: " + tipo + ", Descripción: " + super.descripcion  +
+                ", Destinatario: " + super.destinatario +", Contenido Electronico: Sí" + ", Frágil: No" + 
+                ", Peso: " + peso + '.' +"\n";
+        } if( fragil && (contenidoElectronico == false)){
+            return "Paquete " +  " Código: " + super.codigo + ", Tipo: " + tipo + ", Descripción: " + super.descripcion  +
+                ", Destinatario: " + super.destinatario +", Contenido Electronico: No" + ", Frágil: Sí" + 
+                ", Peso: " + peso + '.' +"\n";
+        } 
+        return "Paquete " +  " Código: " + super.codigo + ", Tipo: " + tipo + ", Descripción: " + super.descripcion  +
+                ", Destinatario: " + super.destinatario +", Contenido Electronico: No" + ", Frágil: No" + 
+                ", Peso: " + peso + '.' +"\n";  
+    }
+
     
 }

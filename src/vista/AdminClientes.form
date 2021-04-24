@@ -89,11 +89,17 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Eliminar cliente"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botonEliminarActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="botonMostrar">
       <Properties>
         <Property name="text" type="java.lang.String" value="Mostrar clientes"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botonMostrarActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="labelTitulo">
       <Properties>

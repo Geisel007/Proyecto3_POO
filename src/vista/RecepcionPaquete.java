@@ -2,6 +2,7 @@
 package vista;
 
 import control.Controlador;
+import static control.Controlador.counter;
 import javax.swing.JOptionPane;
 import modelo.Cliente;
 
@@ -15,6 +16,7 @@ public class RecepcionPaquete extends javax.swing.JFrame {
 
     public RecepcionPaquete(Controlador CONTROLADOR) {
         this.CONTROLADOR = CONTROLADOR;
+        initComponents();
     }
 
     public RecepcionPaquete() {
@@ -38,6 +40,8 @@ public class RecepcionPaquete extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         comboElectronico = new javax.swing.JComboBox<>();
         combofragil = new javax.swing.JComboBox<>();
+        lblDescripcion = new javax.swing.JLabel();
+        txfDescripcion = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -78,39 +82,47 @@ public class RecepcionPaquete extends javax.swing.JFrame {
 
         combofragil.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Si", "No" }));
 
+        lblDescripcion.setText("Descripción:");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(botonVolver)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(botonRegistrar))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(50, 50, 50)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(jLabel3)
                                     .addComponent(jLabel2)
-                                    .addComponent(jLabel5)
-                                    .addComponent(jLabel4)
-                                    .addComponent(jLabel6))
-                                .addGap(32, 32, 32)
+                                    .addComponent(lblDescripcion)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jLabel5)
+                                        .addComponent(jLabel4)))
+                                .addGap(31, 31, 31)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txfDescripcion, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(comboCaja, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(fieldPeso)
-                                    .addComponent(fieldCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(comboElectronico, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(combofragil, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(124, 124, 124)
-                                .addComponent(jLabel1)))
-                        .addGap(0, 40, Short.MAX_VALUE)))
+                                .addGap(8, 8, 8)
+                                .addComponent(jLabel6)
+                                .addGap(32, 32, 32)
+                                .addComponent(fieldCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 18, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(botonVolver)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(botonRegistrar)))
                 .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addGap(95, 95, 95)
+                .addComponent(jLabel1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {comboCaja, fieldPeso});
@@ -118,40 +130,45 @@ public class RecepcionPaquete extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(29, 29, 29)
+                .addContainerGap()
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(fieldCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel6))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(10, 10, 10)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblDescripcion)
+                    .addComponent(txfDescripcion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel2)
-                    .addComponent(comboCaja, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(comboElectronico, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(14, 14, 14)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel4)
-                    .addComponent(combofragil, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
-                    .addComponent(fieldPeso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(28, 28, 28)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(comboCaja, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(comboElectronico, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel3))
+                        .addGap(14, 14, 14)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(combofragil, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel4))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(fieldPeso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel5))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(botonVolver)
                     .addComponent(botonRegistrar))
-                .addContainerGap())
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void botonVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonVolverActionPerformed
-        RecepcionArticulo ventanaRecepcion = new RecepcionArticulo();
+        RecepcionArticulo ventanaRecepcion = new RecepcionArticulo(CONTROLADOR);
         ventanaRecepcion.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_botonVolverActionPerformed
@@ -159,15 +176,24 @@ public class RecepcionPaquete extends javax.swing.JFrame {
     private void botonRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonRegistrarActionPerformed
 
         int id = Integer.parseInt(fieldCliente.getText());
+        String descripcion = txfDescripcion.getText();
         int peso = Integer.parseInt(fieldPeso.getText());
         String tipo = (String)comboCaja.getSelectedItem();
         String temp = (String)comboElectronico.getSelectedItem();
         boolean electronico =  temp.equals("Si");
         temp = (String)combofragil.getSelectedItem();
         boolean fragil = temp.equals("Si");
-        Cliente cliente = CONTROLADOR.consultarCliente(id);
+        
+        Cliente cliente = counter.consultar(id);
         if(cliente != null){
-            CONTROLADOR.agregarEntregable(cliente.getNumeroCasillero(), id, peso, tipo, electronico, fragil);
+            boolean temp2 = CONTROLADOR.agregarEntregable(cliente, peso, tipo, electronico, fragil,descripcion);
+            if(temp2){
+               JOptionPane.showMessageDialog(null, "Paquete enviado con éxito.");
+               CONTROLADOR.ascenderCliente(cliente);
+            } else {
+                JOptionPane.showMessageDialog(null,"Error al enviar el paquete.", "Error",JOptionPane.WARNING_MESSAGE); 
+            }
+            
        } else {
             JOptionPane.showMessageDialog(null,"El cliente no existe", "Error",JOptionPane.WARNING_MESSAGE);
         }
@@ -200,5 +226,7 @@ public class RecepcionPaquete extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel lblDescripcion;
+    private javax.swing.JTextField txfDescripcion;
     // End of variables declaration//GEN-END:variables
 }

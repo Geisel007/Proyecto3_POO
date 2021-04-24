@@ -1,33 +1,30 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package modelo;
 
+import java.util.Date;
+
 /**
- *
- * @author David
+ * @author IanSamuels
  */
 public class Entregable {
     
-    private int codigo;
-    static int contador = 1000;
-    private boolean estado = false;
-    private String descripcion;
-    private int remitente;
+    protected int codigo;
+    protected static int contador = 1000;
+    protected boolean estado = false;
+    protected String descripcion;
+    protected int destinatario;
+    protected Date fechaEntregado;
+    protected Date fechaRecibido;
     
     public Entregable(){
         
     }
     
-    public Entregable(String pDescripcion, 
-            int pRemitente){
-        pDescripcion = descripcion;
-        pRemitente = remitente;
+    public Entregable(String descripcion,int destinatario) {
+        this.descripcion = descripcion;
+        this.destinatario = destinatario;
         contador++;
         codigo = contador;
-        
     }
 
     public void setCodigo(int codigo) {
@@ -42,8 +39,8 @@ public class Entregable {
         this.descripcion = descripcion;
     }
 
-    public void setRemitente(int remitente) {
-        this.remitente = remitente;
+    public void setRemitente(int destinatario) {
+        this.destinatario = destinatario;
     }
 
     public int getCodigo() {
@@ -59,9 +56,31 @@ public class Entregable {
     }
 
     public int getRemitente() {
-        return remitente;
+        return destinatario;
+    }   
+
+    public Date getFechaEntregado() {
+        return fechaEntregado;
+    }
+
+    public void setFechaEntregado(Date fechaEntregado) {
+        this.fechaEntregado = fechaEntregado;
+    }
+
+    public Date getFechaRecibido() {
+        return fechaRecibido;
+    }
+
+    public void setFechaRecibido(Date fechaRecibido) {
+        this.fechaRecibido = fechaRecibido;
     }
     
     
+
+    @Override
+    public String toString() {
+        return "Entregable." + "Código: " + codigo + ", Estado: " + estado + ", Descripción: " + descripcion 
+                + ", Destinatario: " + destinatario + '.';
+    }
     
 }

@@ -1,29 +1,22 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package modelo;
 
 /**
- *
  * @author David
  */
 public class Revista extends Entregable {
     
     private String nombre;
-    private boolean catalago;
+    private boolean catalogo;
     private String tema;
     
     public Revista(){}
     
-    public Revista(String descripcion, int remitente, String pNombre, 
-            boolean pCatalogo, String pTema){
-        
-        super(descripcion, remitente);
-        pNombre = nombre;
-        pCatalogo = catalago;
-        pTema = tema;
+    public Revista(String pDescripcion, int pDestinatario, String nombre, boolean catalogo, String tema ) {
+        super(pDescripcion, pDestinatario);
+        this.nombre = nombre;
+        this.catalogo = catalogo;
+        this.tema = tema;
     }
 
     public String getNombre() {
@@ -34,12 +27,12 @@ public class Revista extends Entregable {
         this.nombre = nombre;
     }
 
-    public boolean isCatalago() {
-        return catalago;
+    public boolean isCatalogo() {
+        return catalogo;
     }
 
     public void setCatalago(boolean catalago) {
-        this.catalago = catalago;
+        this.catalogo = catalago;
     }
 
     public String getTema() {
@@ -49,7 +42,17 @@ public class Revista extends Entregable {
     public void setTema(String tema) {
         this.tema = tema;
     }
- 
-    
+
+    @Override
+    public String toString() {
+        if(catalogo){
+            return "Revista " +  " Código: " + super.codigo + ", Nombre: " + ", Descripción: " + super.descripcion  
+                + ", Destinatario: " + super.destinatario +nombre + ", Catálogo: Sí" + catalogo + ", Tema: " 
+                + tema + '.' +"\n";
+        }
+         return "Revista " +  " Código: " + super.codigo + ", Nombre: " + ", Descripción: " + super.descripcion  
+                + ", Destinatario: " + super.destinatario +nombre + ", Catálogo: No"  + ", Tema: " 
+                + tema + '.' +"\n";
+    }
     
 }

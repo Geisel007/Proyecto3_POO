@@ -5,14 +5,22 @@
  */
 package vista;
 
+import control.Controlador;
+
 /**
  *
- * @author Gollo
+ * @author PC
  */
 public class EliminarCliente extends javax.swing.JFrame {
-
+    
+    private Controlador CONTROLADOR;
+    
+    public EliminarCliente(Controlador CONTROLADOR) {
+        initComponents();
+        this.CONTROLADOR = CONTROLADOR;
+    }
     /**
-     * Creates new form EliminarCliente
+     * Creates new form Eliminar
      */
     public EliminarCliente() {
         initComponents();
@@ -27,88 +35,93 @@ public class EliminarCliente extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
-        lblEliminarCliente = new javax.swing.JLabel();
-        lblIdentificacion = new javax.swing.JLabel();
-        txfIdentificacion = new javax.swing.JTextField();
-        btnVolver = new javax.swing.JButton();
-        btnEliminar = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        botonEliminar = new javax.swing.JButton();
+        botonVolver = new javax.swing.JButton();
+        fieldID = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        lblEliminarCliente.setText("Eliminar Cliente");
+        jLabel1.setText("Eliminar cliente");
 
-        lblIdentificacion.setText("Identificación del cliente eliminar: ");
-
-        btnVolver.setText("Volver");
-        btnVolver.addActionListener(new java.awt.event.ActionListener() {
+        botonEliminar.setText("Eliminar");
+        botonEliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnVolverActionPerformed(evt);
+                botonEliminarActionPerformed(evt);
             }
         });
 
-        btnEliminar.setText("Eliminar");
+        botonVolver.setText("Volver");
+        botonVolver.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonVolverActionPerformed(evt);
+            }
+        });
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(lblEliminarCliente)
-                .addGap(153, 153, 153))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(21, 21, 21)
-                .addComponent(lblIdentificacion)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(txfIdentificacion, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(23, Short.MAX_VALUE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(30, 30, 30)
-                .addComponent(btnVolver, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(51, 51, 51))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(50, 50, 50)
-                .addComponent(lblEliminarCliente)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(41, 41, 41)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblIdentificacion)
-                            .addComponent(txfIdentificacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(63, 169, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btnEliminar)
-                            .addComponent(btnVolver))
-                        .addGap(74, 74, 74))))
-        );
+        fieldID.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                fieldIDActionPerformed(evt);
+            }
+        });
+
+        jLabel2.setText("Identificación:");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(botonVolver)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(botonEliminar))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(fieldID)))
+                .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addGap(91, 91, 91)
+                .addComponent(jLabel1)
+                .addContainerGap(94, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel1)
+                .addGap(33, 33, 33)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(fieldID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel2))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(botonEliminar)
+                    .addComponent(botonVolver))
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverActionPerformed
-        AdminClientes ventanaAdminClientes = new AdminClientes();
+    private void fieldIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fieldIDActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_fieldIDActionPerformed
+
+    private void botonEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonEliminarActionPerformed
+        int id;
+        id = Integer.parseInt(fieldID.getText());
+        CONTROLADOR.eliminarCliente(id);
+    }//GEN-LAST:event_botonEliminarActionPerformed
+
+    private void botonVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonVolverActionPerformed
+        AdminClientes ventanaAdminClientes = new AdminClientes(CONTROLADOR);
         ventanaAdminClientes.setVisible(true);
         this.setVisible(false);
-    }//GEN-LAST:event_btnVolverActionPerformed
+    }//GEN-LAST:event_botonVolverActionPerformed
 
     /**
      * @param args the command line arguments
@@ -136,6 +149,7 @@ public class EliminarCliente extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(EliminarCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
+        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -146,11 +160,10 @@ public class EliminarCliente extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnEliminar;
-    private javax.swing.JButton btnVolver;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JLabel lblEliminarCliente;
-    private javax.swing.JLabel lblIdentificacion;
-    private javax.swing.JTextField txfIdentificacion;
+    private javax.swing.JButton botonEliminar;
+    private javax.swing.JButton botonVolver;
+    private javax.swing.JTextField fieldID;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     // End of variables declaration//GEN-END:variables
 }

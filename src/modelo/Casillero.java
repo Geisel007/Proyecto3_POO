@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package modelo;
 
 import java.util.ArrayList;
@@ -13,7 +9,7 @@ import java.util.ArrayList;
  */
 public class Casillero {
     
-    private static int contador = 0;
+    private static int contador = 100;
     private int numero;
     private int cedulaCliente = -1;
     private ArrayList<Entregable> listaEntregables = new ArrayList();
@@ -21,22 +17,6 @@ public class Casillero {
     public Casillero(){
         contador++;
         numero = contador;
-    }
-
-    public int getNumero() {
-        return numero;
-    }
-
-    public int getCedulaCliente() {
-        return cedulaCliente;
-    }
-
-    public void setCedulaCliente(int cedulaCliente) {
-        this.cedulaCliente = cedulaCliente;
-    }
-
-    public ArrayList<Entregable> getListaEntregables() {
-        return listaEntregables;
     }
     
     public boolean agregarEntregable(Entregable entregable){
@@ -61,13 +41,31 @@ public class Casillero {
             }
         }
     }
+    
+    public void borrarEntregables(){
+        listaEntregables = new ArrayList();
+    }
+    
+    public int getNumero() {
+        return numero;
+    }
+
+    public int getCedulaCliente() {
+        return cedulaCliente;
+    }
+
+    public void setCedulaCliente(int cedulaCliente) {
+        this.cedulaCliente = cedulaCliente;
+    }
+
+    public ArrayList<Entregable> getListaEntregables() {
+        return listaEntregables;
+    }
 
     @Override
     public String toString() {
         return "Casillero{" + "numero=" + numero + ", cedulaCliente=" + 
                 cedulaCliente + ", listaEntregables=" + listaEntregables + '}';
     }
-    
-    
-    
+
 }

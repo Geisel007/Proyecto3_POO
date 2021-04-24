@@ -2,6 +2,7 @@
 package vista;
 
 import control.Controlador;
+import static control.Controlador.counter;
 import javax.swing.JOptionPane;
 import modelo.Cliente;
 
@@ -144,7 +145,7 @@ public class RecepcionRevista extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void botonVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonVolverActionPerformed
-        RecepcionArticulo ventanaRecepcion = new RecepcionArticulo();
+        RecepcionArticulo ventanaRecepcion = new RecepcionArticulo(CONTROLADOR);
         ventanaRecepcion.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_botonVolverActionPerformed
@@ -152,13 +153,20 @@ public class RecepcionRevista extends javax.swing.JFrame {
     private void botonRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonRegistrarActionPerformed
         int id = Integer.parseInt(fieldCliente.getText());
         String descripcion = fieldDesc.getText();
-         String nombre = fieldNombre.getText();
-         String temp = (String)jComboBox1.getSelectedItem();
-         boolean catalogo = temp.equals("Si");
-         String tema = (String)comboTema.getSelectedItem();
-        Cliente cliente = CONTROLADOR.consultarCliente(id);
+        String nombre = fieldNombre.getText();
+        String temp = (String)jComboBox1.getSelectedItem();
+        boolean catalogo = temp.equals("Si");
+        String tema = (String)comboTema.getSelectedItem();
+        
+        Cliente cliente = counter.consultar(id);
         if(cliente != null){
-            CONTROLADOR.agregarEntregable(cliente.getNumeroCasillero(), id, nombre, descripcion, catalogo, tema);
+            boolean temp2 = CONTROLADOR.agregarEntregable(cliente, nombre, descripcion, catalogo, tema);
+            if(temp2){
+               JOptionPane.showMessageDialog(null, "Revista enviada con éxito.");
+               CONTROLADOR.ascenderCliente(cliente);
+            } else {
+               JOptionPane.showMessageDialog(null,"Error al enviar la revista.", "Error",JOptionPane.WARNING_MESSAGE);  
+            }
         } else {
             JOptionPane.showMessageDialog(null,"El cliente no existe", "Error",JOptionPane.WARNING_MESSAGE);
         }

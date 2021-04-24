@@ -34,8 +34,11 @@ public class AdmCounter {
         return null;
     }
     
-    public boolean agregar(String pNombre, int pCedulaJuridica, String pDireccion, int pCantidadDeCasilleros){
-        Counter counter = new Counter(pNombre, pCedulaJuridica, pDireccion, pCantidadDeCasilleros);
+    public boolean agregar(String pNombre, int pCedulaJuridica, String pDireccion, 
+            int pCantidadDeCasilleros, int pTotalRetiros){
+        
+        Counter counter = new Counter(pNombre, pCedulaJuridica, pDireccion, 
+                pCantidadDeCasilleros, pTotalRetiros);
         if (!counter.existe(counter.getCedulaJuridica(), listaCounters)){
             listaCounters.add(counter);
             System.out.println("Se agrego correctamente el counter");

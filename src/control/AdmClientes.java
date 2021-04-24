@@ -31,6 +31,7 @@ public class AdmClientes {
         Cliente cliente = new Cliente(identificacion,nombre, correo, telefono, direccion, sexo, fechaDeNacimiento);
         if (cliente.existe(cliente.getIdentificacion(), listaClientes) == -1){
             listaClientes.add(cliente);
+            System.out.println("El cliente " + nombre + " se agregó a admClientes");
             return true;
         }
         return false;
@@ -57,9 +58,16 @@ public class AdmClientes {
         return listaClientes;
     }
     
+//    @Override
+//    public String toString() {
+//        return "Clientes Registrados:\n" + listaClientes ;
+//    }
+
     @Override
     public String toString() {
-        return "Clientes Registrados:\n" + listaClientes ;
+        return "Clientes Registrados:\n" + listaClientes;
     }
+    
+    
 
 }
