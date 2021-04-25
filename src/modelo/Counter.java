@@ -16,7 +16,8 @@ public class Counter {
     private int cantidadDeCasilleros;
     private int totalRecibidos;
     private static ArrayList<Casillero> listaCasilleros = new ArrayList();
-    private static ArrayList<Cliente> listaClientes = new ArrayList();
+    private static ArrayList<Cliente> listaClientes = new ArrayList(); 
+    private  ArrayList<TiqueteRetiro> contablidad = new ArrayList<>();
     
     public Counter(){
     }
@@ -243,6 +244,10 @@ public class Counter {
 
     public void setListaClientes(ArrayList<Cliente> listaClientes) {
         this.listaClientes = listaClientes;
+    }
+
+    public ArrayList<TiqueteRetiro> getContablidad() {
+        return contablidad;
     }
 
     @Override

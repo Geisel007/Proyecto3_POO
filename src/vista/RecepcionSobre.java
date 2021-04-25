@@ -67,6 +67,11 @@ public class RecepcionSobre extends javax.swing.JFrame {
         });
 
         comboTipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Manila", "Aereo" }));
+        comboTipo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                comboTipoActionPerformed(evt);
+            }
+        });
 
         comboContenido.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Documentacion", "Otros" }));
 
@@ -160,12 +165,12 @@ public class RecepcionSobre extends javax.swing.JFrame {
         int id = Integer.parseInt(fieldCliente.getText());
         String descripcion = fieldDesc.getText();
         int peso =  Integer.parseInt(fieldPeso.getText());
-        String tipo = (String)comboContenido.getSelectedItem();
-        String contenido = (String)comboTipo.getSelectedItem();
+        String tipo = (String)comboTipo.getSelectedItem();
+        String contenido = (String)comboContenido.getSelectedItem();
     
         Cliente cliente = counter.consultar(id);
         if(cliente != null){
-            boolean temp = CONTROLADOR.agregarEntregable(cliente,  descripcion, peso, tipo, contenido);
+            boolean temp = CONTROLADOR.agregarEntregable(cliente,  descripcion, peso, contenido ,tipo );
             if(temp){
                 JOptionPane.showMessageDialog(null, "Sobre enviado con éxito.");
                 CONTROLADOR.ascenderCliente(cliente);
@@ -180,6 +185,10 @@ public class RecepcionSobre extends javax.swing.JFrame {
     private void fieldClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fieldClienteActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_fieldClienteActionPerformed
+
+    private void comboTipoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboTipoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_comboTipoActionPerformed
 
     public static void main(String args[]) {
       

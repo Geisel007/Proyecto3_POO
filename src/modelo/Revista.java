@@ -47,7 +47,7 @@ public class Revista extends Entregable {
     public String toString() {
         if(catalogo){
             return "Revista " +  " Código: " + super.codigo + ", Nombre: " + ", Descripción: " + super.descripcion  
-                + ", Destinatario: " + super.destinatario +nombre + ", Catálogo: Sí" + catalogo + ", Tema: " 
+                + ", Destinatario: " + super.destinatario +nombre + ", Catálogo: Sí" + ", Tema: " 
                 + tema + '.' +"\n";
         }
          return "Revista " +  " Código: " + super.codigo + ", Nombre: " + ", Descripción: " + super.descripcion  

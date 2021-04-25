@@ -8,6 +8,10 @@ import modelo.Casillero;
 import modelo.Cliente;
 import modelo.Counter;
 import modelo.Entregable;
+import modelo.Paquete;
+import modelo.Revista;
+import modelo.Sobre;
+import modelo.TiqueteRetiro;
 
 /**
  * @author Geisel Montoya
@@ -48,8 +52,8 @@ public class Controlador {
         return admClientes.consultar(identificacion);
     }
     
-     public boolean agregarEntregable(Cliente cliente, String descripcion, int peso, String tipo, 
-            String contenido){
+     public boolean agregarEntregable(Cliente cliente, String descripcion, int peso, String contenido, 
+            String tipo){
 
         System.out.println("Agregando sobre...");
         
@@ -100,11 +104,64 @@ public class Controlador {
         
     }
     
-    public int obternerMontoFactura(){
-        int total = 0;
-        
-        
-        return total;
+    public double obternerMontoFactura(Entregable articulo){
+        System.out.println(articulo.toString());
+        if(articulo instanceof Sobre sobre){
+           if(sobre.getTipo().equals("Manila")){
+               System.out.println("sobre de manila");
+               if(sobre.getContenido().equals("Documentacion")){
+                   System.out.println("Documentacion");
+                   return 1;
+               } else {
+                   System.out.println("Otros");
+                   return 2;
+               }
+           } else {
+               System.out.println("sobre aereo");
+               if(sobre.getContenido().equals("Documentacion")){
+                   System.out.println("Documentacion");
+                   return 0;
+               } else {
+                   System.out.println("Otros");
+                   return 1;
+               }
+           }
+        } if(articulo instanceof Paquete paquete){
+            if(paquete.isFragil()){
+                System.out.println("paquete fragil/electronico");
+                if(paquete.isContenidoElectronico()){
+                    return (paquete.getPeso() * 0.02) + 4;
+                }
+                return (paquete.getPeso() * 0.02) + 2; 
+            } if(paquete.isContenidoElectronico()){
+                System.out.println("paquete fragil/electronico");
+                if(paquete.isFragil()){
+                    return (paquete.getPeso() * 0.02) + 4;
+                }
+                return (paquete.getPeso() * 0.02) + 2; 
+            }
+            System.out.println("paquete");
+             return paquete.getPeso() * 0.02; 
+        } if(articulo instanceof Revista revista){
+            if(revista.isCatalogo()){
+                System.out.println("catálogo");
+                return 0;
+            }
+            System.out.println("revista");
+            return 1;
+        }
+       return 0; 
+    }
+    
+    public double calcularDescuesto(double total, Cliente cliente){
+        if(cliente.getTipo().equals("Oro")){
+            JOptionPane.showMessageDialog(null, "Se aplicó un descuento de cliente tipo Oro");
+            return total * 0.10;
+        } if(cliente.getTipo().equals("Plata")){
+            JOptionPane.showMessageDialog(null, "Se aplicó un descuento de cliente tipo Plata");
+            return total * 0.05;
+        } 
+        return 0;        
     }
     
 
@@ -118,6 +175,10 @@ public class Controlador {
 
     public Counter getCounter() {
         return counter;
+    }
+
+    public ArrayList<TiqueteRetiro> getContablidad() {
+        return counter.getContablidad();
     }
        
 }

@@ -36,7 +36,7 @@
                   <Component id="labelTitulo" alignment="2" min="-2" max="-2" attributes="0"/>
                   <Component id="botonSalir" alignment="2" min="-2" pref="206" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="47" max="32767" attributes="0"/>
+              <EmptySpace pref="12" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -101,13 +101,19 @@
     </Component>
     <Component class="javax.swing.JButton" name="botonTipoDeCambio">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Consultar tipo de cambio de divisa extranjera"/>
+        <Property name="text" type="java.lang.String" value="Consultar tipo de cambio/venta de divisa extranjera"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botonTipoDeCambioActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="botonPendientes">
       <Properties>
         <Property name="text" type="java.lang.String" value="Clientes con paquetes pendientes"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botonPendientesActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="botonReporte">
       <Properties>

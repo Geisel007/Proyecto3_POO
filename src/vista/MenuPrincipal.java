@@ -64,9 +64,19 @@ public class MenuPrincipal extends javax.swing.JFrame {
             }
         });
 
-        botonTipoDeCambio.setText("Consultar tipo de cambio de divisa extranjera");
+        botonTipoDeCambio.setText("Consultar tipo de cambio/venta de divisa extranjera");
+        botonTipoDeCambio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonTipoDeCambioActionPerformed(evt);
+            }
+        });
 
         botonPendientes.setText("Clientes con paquetes pendientes");
+        botonPendientes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonPendientesActionPerformed(evt);
+            }
+        });
 
         botonReporte.setText("Reporte de resumen contable");
 
@@ -95,7 +105,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
                     .addComponent(botonAdmEntregables)
                     .addComponent(labelTitulo)
                     .addComponent(botonSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(47, Short.MAX_VALUE))
+                .addContainerGap(12, Short.MAX_VALUE))
         );
 
         layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {botonAdmClientes, botonAdmEntregables, botonPendientes, botonRecepcion, botonReporte, botonRetiro, botonTipoDeCambio});
@@ -154,6 +164,18 @@ public class MenuPrincipal extends javax.swing.JFrame {
         ventanaAdminEntregables.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_botonAdmEntregablesActionPerformed
+
+    private void botonTipoDeCambioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonTipoDeCambioActionPerformed
+        CambioVenta ventanaCambioVenta = new CambioVenta(CONTROLADOR);
+        ventanaCambioVenta.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_botonTipoDeCambioActionPerformed
+
+    private void botonPendientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonPendientesActionPerformed
+        PaquetesPendientes ventanaPaquetesPendientes= new PaquetesPendientes(CONTROLADOR);
+        ventanaPaquetesPendientes.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_botonPendientesActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botonAdmClientes;
