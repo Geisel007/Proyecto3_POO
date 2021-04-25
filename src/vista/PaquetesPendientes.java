@@ -2,7 +2,6 @@
 package vista;
 
 import control.Controlador;
-import indicadoresEconomicosBCCR.TipoCambio;
 import modelo.Cliente;
 import modelo.Entregable;
 
@@ -20,10 +19,7 @@ public class PaquetesPendientes extends javax.swing.JFrame {
     }
     
     private void mostrarClientes() {
-        TipoCambio servicioTipoCambio = new TipoCambio();
         String[] strings = new String[CONTROLADOR.getClientes().size()];
-        double compra = servicioTipoCambio.getCompra();
-        double venta = servicioTipoCambio.getVenta();
         for (int i = 0; i < CONTROLADOR.getClientes().size(); i++) {
             Cliente get = CONTROLADOR.getClientes().get(i);
             int num = get.getNumeroCasillero();

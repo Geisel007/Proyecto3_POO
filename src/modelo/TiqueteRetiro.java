@@ -14,12 +14,30 @@ import java.util.Date;
 public class TiqueteRetiro {
     private Date fechaRetiro;
     private int entregable;
-    private int monto;
+    private double monto;
+    private double descuento;
+    private int numCasillero;
+
+    public TiqueteRetiro(Date fechaRetiro, int entregable, double monto,  double descuento, int numCasillero) {
+        this.fechaRetiro = fechaRetiro;
+        this.entregable = entregable;
+        this.monto = monto;
+        this.descuento = descuento;
+        this.numCasillero = numCasillero;
+    }
     
-    public TiqueteRetiro(Date pFechaRetiro, int pEntregable, int pMonto){
+    public TiqueteRetiro(Date pFechaRetiro, int pEntregable, double pMonto){
         fechaRetiro = pFechaRetiro;
         entregable = pEntregable;
         monto = pMonto;
+    }
+
+    public double getDescuento() {
+        return descuento;
+    }
+    
+    public int getNumCasillero() {
+        return numCasillero;
     }
 
     public Date getFechaRetiro() {
@@ -38,13 +56,18 @@ public class TiqueteRetiro {
         this.entregable = entregable;
     }
 
-    public int getMonto() {
+    public double getMonto() {
         return monto;
     }
 
-    public void setMonto(int monto) {
+    public void setMonto(double monto) {
         this.monto = monto;
     }
-    
+
+    @Override
+    public String toString() {
+        return "Fecha de Retiro: " + fechaRetiro + ", " + entregable + 
+                ", Monto:" + monto +  '.';
+    }
     
 }

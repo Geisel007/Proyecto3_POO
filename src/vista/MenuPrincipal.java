@@ -79,6 +79,11 @@ public class MenuPrincipal extends javax.swing.JFrame {
         });
 
         botonReporte.setText("Reporte de resumen contable");
+        botonReporte.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonReporteActionPerformed(evt);
+            }
+        });
 
         labelTitulo.setText("Menu Principal");
 
@@ -176,6 +181,12 @@ public class MenuPrincipal extends javax.swing.JFrame {
         ventanaPaquetesPendientes.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_botonPendientesActionPerformed
+
+    private void botonReporteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonReporteActionPerformed
+        RegistroContable ventanaRegistroContable= new RegistroContable(CONTROLADOR);
+        ventanaRegistroContable.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_botonReporteActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botonAdmClientes;

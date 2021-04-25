@@ -162,11 +162,22 @@ public class RecepcionSobre extends javax.swing.JFrame {
     }//GEN-LAST:event_botonVolverActionPerformed
 
     private void botonRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonRegistrarActionPerformed
-        int id = Integer.parseInt(fieldCliente.getText());
-        String descripcion = fieldDesc.getText();
-        int peso =  Integer.parseInt(fieldPeso.getText());
-        String tipo = (String)comboTipo.getSelectedItem();
-        String contenido = (String)comboContenido.getSelectedItem();
+
+        int id = 0;
+        String descripcion = "";
+        int peso = -1;
+        String tipo = "";
+        String contenido = "";
+        
+        try {
+            id = Integer.parseInt(fieldCliente.getText());
+            descripcion = fieldDesc.getText();
+            peso =  Integer.parseInt(fieldPeso.getText());
+            tipo = (String)comboTipo.getSelectedItem();
+            contenido = (String)comboContenido.getSelectedItem();
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null,"Datos incorrectos.", "Error",JOptionPane.WARNING_MESSAGE);
+        }    
     
         Cliente cliente = counter.consultar(id);
         if(cliente != null){

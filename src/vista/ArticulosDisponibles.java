@@ -11,6 +11,7 @@ import javax.swing.JOptionPane;
 import modelo.Cliente;
 import modelo.Entregable;
 import modelo.Sobre;
+import modelo.TiqueteRetiro;
 
 /**
  * @author Geisel Montoya Solano
@@ -38,16 +39,16 @@ public class ArticulosDisponibles extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         listArticulos = new javax.swing.JList<>();
         btnRetirar = new javax.swing.JButton();
-        btnVolver = new javax.swing.JButton();
-        lblFactura = new javax.swing.JLabel();
         btnPagar = new javax.swing.JButton();
-        jScrollPane3 = new javax.swing.JScrollPane();
-        listFactura = new javax.swing.JList<>();
         comboMetodoPago = new javax.swing.JComboBox<>();
         lblMetodoPago = new javax.swing.JLabel();
         lblTipoCambio = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         listTipoCambio = new javax.swing.JList<>();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        listFactura = new javax.swing.JList<>();
+        lblFactura = new javax.swing.JLabel();
+        btnVolver = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -62,25 +63,12 @@ public class ArticulosDisponibles extends javax.swing.JFrame {
             }
         });
 
-        btnVolver.setText("Salir");
-        btnVolver.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnVolverActionPerformed(evt);
-            }
-        });
-
-        lblFactura.setText("Factura");
-
         btnPagar.setText("Pagar");
         btnPagar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnPagarActionPerformed(evt);
             }
         });
-
-        listFactura.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
-        listFactura.setEnabled(false);
-        jScrollPane3.setViewportView(listFactura);
 
         comboMetodoPago.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Contado", "VISA", "MASTER CARD", "AMERICAN EXPRESS" }));
 
@@ -90,7 +78,21 @@ public class ArticulosDisponibles extends javax.swing.JFrame {
 
         jScrollPane2.setEnabled(false);
 
+        listTipoCambio.setEnabled(false);
         jScrollPane2.setViewportView(listTipoCambio);
+
+        listFactura.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        listFactura.setEnabled(false);
+        jScrollPane3.setViewportView(listFactura);
+
+        lblFactura.setText("Factura");
+
+        btnVolver.setText("Salir");
+        btnVolver.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVolverActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -101,30 +103,30 @@ public class ArticulosDisponibles extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblFactura)
-                            .addComponent(lblArticulosDisponibles))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jScrollPane3)
-                                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 634, Short.MAX_VALUE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
+                                    .addComponent(jScrollPane3, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 622, Short.MAX_VALUE))
+                                .addGap(18, 18, 18)
+                                .addComponent(btnVolver, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lblTipoCambio)
-                                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(lblArticulosDisponibles)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lblMetodoPago)
-                                    .addComponent(comboMetodoPago, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(98, 98, 98)))
+                                .addComponent(btnRetirar, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(lblFactura)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btnPagar, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(21, 21, 21))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnVolver, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnPagar, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnRetirar, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(21, 21, 21))))
+                            .addComponent(lblTipoCambio)
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblMetodoPago)
+                            .addComponent(comboMetodoPago, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(126, 126, 126))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -135,26 +137,26 @@ public class ArticulosDisponibles extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(btnRetirar)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(lblFactura)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnPagar)
-                        .addGap(53, 53, 53)
+                        .addGap(119, 119, 119)
                         .addComponent(btnVolver))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
+                        .addGap(34, 34, 34)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lblMetodoPago)
                             .addComponent(lblTipoCambio))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(comboMetodoPago, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(28, Short.MAX_VALUE))
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
+                        .addComponent(lblFactura)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -167,17 +169,19 @@ public class ArticulosDisponibles extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 6, Short.MAX_VALUE))
+                .addContainerGap(15, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
     
     private void tipoCambio(){
-        TipoCambio servicioTipoCambio = new TipoCambio();
         String[] strings = new String[4];
-        double compra = servicioTipoCambio.getCompra();
-        double venta = servicioTipoCambio.getVenta();
+        double compra = 610;
+        double venta = 623;
+        //TipoCambio servicioTipoCambio = new TipoCambio();
+        //compra = servicioTipoCambio.getCompra();
+        //venta = servicioTipoCambio.getVenta();
         strings[0] = "Compra: " ;
         strings[1] = " " + compra;
         strings[2] = "Venta: ";
@@ -248,10 +252,18 @@ public class ArticulosDisponibles extends javax.swing.JFrame {
             Entregable get = factura.get(i);
             double precio = CONTROLADOR.obternerMontoFactura(get);
             strings[i] = "Artículo " + (i+1) + ": "+ get.toString() +  "Precio: " + precio + ".";
-            totalFinal +=precio;            
+            totalFinal +=precio;     
+            CONTROLADOR.AgregarRegistroContable(get, precio, CONTROLADOR.calcularDescuesto(precio, cliente) 
+                    ,cliente);
         }
+        
         totalFinal -= CONTROLADOR.calcularDescuesto(totalFinal, cliente);
-        strings[factura.size()] = "Total: " + totalFinal + ".\n";
+        
+        double compra = 610;
+        //TipoCambio servicioTipoCambio = new TipoCambio();
+        //compra = servicioTipoCambio.getCompra();
+        
+        strings[factura.size()] = "Total en dólares: " + totalFinal + " Total en colones: " + totalFinal*compra + ".\n";
         editarList(strings,listFactura);        
         
     }//GEN-LAST:event_btnPagarActionPerformed

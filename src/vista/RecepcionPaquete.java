@@ -174,16 +174,28 @@ public class RecepcionPaquete extends javax.swing.JFrame {
     }//GEN-LAST:event_botonVolverActionPerformed
 
     private void botonRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonRegistrarActionPerformed
-
-        int id = Integer.parseInt(fieldCliente.getText());
-        String descripcion = txfDescripcion.getText();
-        int peso = Integer.parseInt(fieldPeso.getText());
-        String tipo = (String)comboCaja.getSelectedItem();
-        String temp = (String)comboElectronico.getSelectedItem();
-        boolean electronico =  temp.equals("Si");
-        temp = (String)combofragil.getSelectedItem();
-        boolean fragil = temp.equals("Si");
         
+        int id;
+        String descripcion;
+        int peso;
+        boolean electronico;
+        boolean fragil;
+        String tipo;
+        
+        try {
+            id = Integer.parseInt(fieldCliente.getText());
+            descripcion = txfDescripcion.getText();
+            peso = Integer.parseInt(fieldPeso.getText());
+            tipo = (String)comboCaja.getSelectedItem();
+            String temp = (String)comboElectronico.getSelectedItem();
+            electronico =  temp.equals("Si");
+            temp = (String)combofragil.getSelectedItem();
+            fragil = temp.equals("Si");
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null,"Datos incorrectos.", "Error",JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+
         Cliente cliente = counter.consultar(id);
         if(cliente != null){
             boolean temp2 = CONTROLADOR.agregarEntregable(cliente, peso, tipo, electronico, fragil,descripcion);

@@ -122,7 +122,13 @@ public class RetirarEntregables extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultarActionPerformed
-        int id = Integer.parseInt(txfIdentificacion.getText());
+        int id = 0;
+        try {
+            id = Integer.parseInt(txfIdentificacion.getText());
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null,"Dato incorrecto.", "Error",JOptionPane.WARNING_MESSAGE);
+        }
+        
          Cliente cliente = counter.consultar(id);
         if(cliente != null){
             ArticulosDisponibles ventanaAritculos = new ArticulosDisponibles(CONTROLADOR, cliente);

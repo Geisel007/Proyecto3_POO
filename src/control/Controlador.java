@@ -180,5 +180,13 @@ public class Controlador {
     public ArrayList<TiqueteRetiro> getContablidad() {
         return counter.getContablidad();
     }
+    
+    public void AgregarRegistroContable(Entregable entregable, double monto, double descuento, Cliente cliente){
+        java.util.Date fechaActual = new Date();
+        TiqueteRetiro tiquete = new TiqueteRetiro(fechaActual,entregable.getCodigo(), monto, descuento,
+                    cliente.getNumeroCasillero());
+        counter.getContablidad().add(tiquete);
+        System.out.println("Tiquete de Compra: " + tiquete.toString());
+    }
        
 }

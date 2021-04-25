@@ -151,12 +151,24 @@ public class RecepcionRevista extends javax.swing.JFrame {
     }//GEN-LAST:event_botonVolverActionPerformed
 
     private void botonRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonRegistrarActionPerformed
-        int id = Integer.parseInt(fieldCliente.getText());
-        String descripcion = fieldDesc.getText();
-        String nombre = fieldNombre.getText();
-        String temp = (String)jComboBox1.getSelectedItem();
-        boolean catalogo = temp.equals("Si");
-        String tema = (String)comboTema.getSelectedItem();
+        
+        int id;
+        String descripcion;
+        String nombre;
+        boolean catalogo;
+        String tema;
+        
+        try {
+            id = Integer.parseInt(fieldCliente.getText());
+            descripcion = fieldDesc.getText();
+            nombre = fieldNombre.getText();
+            String temp = (String)jComboBox1.getSelectedItem();
+            catalogo = temp.equals("Si");
+            tema = (String)comboTema.getSelectedItem();
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null,"Datos incorrectos.", "Error",JOptionPane.WARNING_MESSAGE);
+            return;
+        }
         
         Cliente cliente = counter.consultar(id);
         if(cliente != null){

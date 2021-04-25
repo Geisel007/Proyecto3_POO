@@ -28,10 +28,12 @@ public class CambioVenta extends javax.swing.JDialog {
     }
     
     private void tipoCambio(){
-        TipoCambio servicioTipoCambio = new TipoCambio();
         String[] strings = new String[4];
-        double compra = servicioTipoCambio.getCompra();
-        double venta = servicioTipoCambio.getVenta();
+        double compra = 610;
+        double venta = 623;
+        //TipoCambio servicioTipoCambio = new TipoCambio();
+        //compra = servicioTipoCambio.getCompra();
+        //venta = servicioTipoCambio.getVenta();
         strings[0] = "Compra: " ;
         strings[1] = " " + compra;
         strings[2] = "Venta: ";
