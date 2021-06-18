@@ -19,5 +19,9 @@ public abstract class Ejemplar {
         this.tiempoDescomposicion = tiempoDescomposicion;
         this.imagen = imagen;
     }
+
+    public String getNombre() {
+        return nombre;
+    }
     
 }
