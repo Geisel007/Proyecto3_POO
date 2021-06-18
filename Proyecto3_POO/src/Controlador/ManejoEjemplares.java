@@ -40,7 +40,7 @@ public class ManejoEjemplares {
             return true;
         }
         if(Categoria.equals("Plástico")){
-            Plastico ejemplar = new Plastico(nombre,tratamiento,tiempoDescomposicion,imagen) {};
+            Plastico ejemplar = new Plastico(nombre,tratamiento,tiempoDescomposicion,imagen);
             listaEjemplares.add(ejemplar);
             return true;
         }
@@ -52,11 +52,42 @@ public class ManejoEjemplares {
         if(Categoria.equals("Vidrio")){
             Vidrio ejemplar = new Vidrio(nombre,tratamiento,tiempoDescomposicion,imagen);
             listaEjemplares.add(ejemplar);
+            return true;
         }
         
-        return true;
+        return false;
     }
     
+    public boolean Eliminar(String nombre, String tratamiento, String tiempoDescomposicion, String imagen,
+            String Categoria){
+        
+        for (int i = 0; i < listaEjemplares.size(); i++) {
+            Ejemplar get = listaEjemplares.get(i);
+            if(get.getNombre().equals(nombre)){
+                listaEjemplares.remove(get);
+                return true;  
+            }
+        }
+   
+        return false;
+    }
+    
+    public boolean Modificar(String nombre, String tratamiento, String tiempoDescomposicion, String imagen,
+            String Categoria){
+        
+        for (int i = 0; i < listaEjemplares.size(); i++) {
+            Ejemplar get = listaEjemplares.get(i);
+            if(get.getNombre().equals(nombre)){
+                get.setNombre(nombre);
+                get.setImagen(imagen);
+                get.setTiempoDescomposicion(tiempoDescomposicion);
+                get.setTratamiento(tratamiento);
+                return true; 
+            }
+        }
+   
+        return false;
+    }
     
     
 }
