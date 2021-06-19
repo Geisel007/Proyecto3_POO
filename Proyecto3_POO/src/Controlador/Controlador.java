@@ -14,9 +14,8 @@ public class Controlador {
         return manejoEjemplares.Agregar(nombre, tratamiento, tiempoDescomposicion, imagen, Categoria);
     }
     
-    public boolean eliminarEjemplar(String nombre, String tratamiento, String tiempoDescomposicion, String imagen,
-            String Categoria){
-        return manejoEjemplares.Eliminar(nombre, tratamiento, tiempoDescomposicion, imagen, Categoria);
+    public boolean eliminarEjemplar(String nombre){
+        return manejoEjemplares.Eliminar(nombre);
     }
     
     public boolean modificarEjemplar(String nombre, String tratamiento, String tiempoDescomposicion, String imagen,
