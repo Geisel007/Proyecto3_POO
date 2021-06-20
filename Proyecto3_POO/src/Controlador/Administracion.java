@@ -27,6 +27,17 @@ public final class Administracion {
         listaAdmins.add(administrador);
         return true;
     }
+    
+    public boolean validarLogin(String nombre, String contrasena){
+        for (int i = 0; i < listaAdmins.size(); i++){
+            Administrador admin = listaAdmins.get(i);
+            if (admin.getNombre().equals(nombre) && 
+                    admin.getContrasena().equals(contrasena)){
+                return true;
+            }
+        }
+        return false;
+    }
 
     public ArrayList<Administrador> getListaAdmins() {
         return listaAdmins;

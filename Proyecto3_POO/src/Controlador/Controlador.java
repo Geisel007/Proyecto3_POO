@@ -27,4 +27,8 @@ public class Controlador {
         return Administracion.Agregar(nombre, cedula, contrasena);
     }
     
+    public boolean verificarLogin(String nombre, String contrasena){
+        return Administracion.validarLogin(nombre, contrasena);
+    }
+    
 }
