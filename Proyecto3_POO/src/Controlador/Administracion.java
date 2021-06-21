@@ -13,17 +13,17 @@ public final class Administracion {
 
     public Administracion() {
        listaAdmins = new ArrayList();
-       Agregar("admin",123456789,"1234");
+       Agregar("admin","1234");
     }
     
-    public boolean Agregar(String nombre, int cedula, String contrasena){
+    public boolean Agregar(String nombre, String contrasena){
         for (int i = 0; i < listaAdmins.size(); i++) {
             Administrador get = listaAdmins.get(i);
-            if(get.getCedula() == cedula){
+            if(get.getNombre() == nombre){
                 return false;
             }
         }
-        Administrador administrador = new Administrador(nombre,cedula,contrasena);
+        Administrador administrador = new Administrador(nombre,contrasena);
         listaAdmins.add(administrador);
         return true;
     }

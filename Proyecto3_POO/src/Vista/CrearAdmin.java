@@ -5,12 +5,26 @@
  */
 package Vista;
 
+import Controlador.Controlador;
+import javax.swing.JOptionPane;
+
 /**
  *
- * @author PC
+ * @author IanSamuels
  */
 public class CrearAdmin extends javax.swing.JFrame {
-
+    
+    private Controlador CONTROLADOR;
+    
+    /**
+     * Se llama al controlador en cada ventana
+     * @param CONTROLADOR El controlador del programa
+     */
+    public CrearAdmin(Controlador CONTROLADOR) {
+        this.CONTROLADOR = CONTROLADOR;
+        initComponents();
+    }
+    
     /**
      * Creates new form CrearAdmin
      */
@@ -44,8 +58,18 @@ public class CrearAdmin extends javax.swing.JFrame {
         jLabel3.setText("Contraseña:");
 
         botonVolver.setText("Volver");
+        botonVolver.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonVolverActionPerformed(evt);
+            }
+        });
 
         botonCrear.setText("Crear");
+        botonCrear.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonCrearActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -97,6 +121,33 @@ public class CrearAdmin extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void botonCrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonCrearActionPerformed
+        String nombre;
+        String contra;
+        nombre = textoNombre.getText();
+        contra = textoContra.getText();
+        
+        if (CONTROLADOR.nuevoAdmin(nombre, contra)){
+            
+            JOptionPane.showMessageDialog(null, "Acceso otorgado", 
+            "InfoBox: " + "Alerta",JOptionPane.INFORMATION_MESSAGE);
+            
+            MenuAdministracion ventanaMenuAdmin = new MenuAdministracion(CONTROLADOR);
+            ventanaMenuAdmin.setVisible(true);
+            this.setVisible(false);
+            
+        } else {
+            JOptionPane.showMessageDialog(null, "Contraseña y nombre no coinciden", 
+            "InfoBox: " + "Alerta",JOptionPane.INFORMATION_MESSAGE);
+        }
+    }//GEN-LAST:event_botonCrearActionPerformed
+
+    private void botonVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonVolverActionPerformed
+        MenuAdministracion ventanaMenuAdmin = new MenuAdministracion(CONTROLADOR);
+        ventanaMenuAdmin.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_botonVolverActionPerformed
 
     /**
      * @param args the command line arguments

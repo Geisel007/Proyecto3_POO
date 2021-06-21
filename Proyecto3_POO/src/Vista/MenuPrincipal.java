@@ -16,7 +16,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         this.CONTROLADOR = CONTROLADOR;
     }
 
-
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -49,6 +49,11 @@ public class MenuPrincipal extends javax.swing.JFrame {
         botonSeccion.setText("Sección Informativa");
 
         botonAdmin.setText("Administración");
+        botonAdmin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonAdminActionPerformed(evt);
+            }
+        });
 
         botonSalir.setText("Salir");
         botonSalir.addActionListener(new java.awt.event.ActionListener() {
@@ -112,6 +117,12 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private void botonSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonSalirActionPerformed
         this.setVisible(false);
     }//GEN-LAST:event_botonSalirActionPerformed
+
+    private void botonAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonAdminActionPerformed
+        IniciarSesion ventanaIniciarSesion = new IniciarSesion(CONTROLADOR);
+        ventanaIniciarSesion.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_botonAdminActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

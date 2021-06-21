@@ -33,6 +33,11 @@ public class MenuAdministracion extends javax.swing.JFrame {
         jLabel1.setText("Menu Administrativo");
 
         botonCrear.setText("Crear Admin");
+        botonCrear.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonCrearActionPerformed(evt);
+            }
+        });
 
         botonIngresar.setText("Ingresar Ejemplar");
         botonIngresar.addActionListener(new java.awt.event.ActionListener() {
@@ -44,6 +49,11 @@ public class MenuAdministracion extends javax.swing.JFrame {
         botonCargar.setText("Cargar Ejemplar");
 
         botonModificar.setText("Modificar Ejemplar");
+        botonModificar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonModificarActionPerformed(evt);
+            }
+        });
 
         botonEliminar.setText("Eliminar Ejemplar");
         botonEliminar.addActionListener(new java.awt.event.ActionListener() {
@@ -102,7 +112,7 @@ public class MenuAdministracion extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void botonIngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonIngresarActionPerformed
-        IngresarEjemplar ventanaIngresar = new IngresarEjemplar(CONTROLADOR);
+       IngresarEjemplar ventanaIngresar = new IngresarEjemplar(CONTROLADOR);
        ventanaIngresar.setVisible(true);
        this.setVisible(false);
     }//GEN-LAST:event_botonIngresarActionPerformed
@@ -114,10 +124,22 @@ public class MenuAdministracion extends javax.swing.JFrame {
     }//GEN-LAST:event_botonSalirActionPerformed
 
     private void botonEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonEliminarActionPerformed
-        EliminarEjemplar ventanaEliminar = new EliminarEjemplar(CONTROLADOR);
+       EliminarEjemplar ventanaEliminar = new EliminarEjemplar(CONTROLADOR);
        ventanaEliminar.setVisible(true);
        this.setVisible(false);
     }//GEN-LAST:event_botonEliminarActionPerformed
+
+    private void botonCrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonCrearActionPerformed
+        CrearAdmin ventanaCrearAdmin = new CrearAdmin(CONTROLADOR);
+        ventanaCrearAdmin.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_botonCrearActionPerformed
+
+    private void botonModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonModificarActionPerformed
+        ModificarEjemplar ventanaModificarEjemplar = new ModificarEjemplar(CONTROLADOR);
+        ventanaModificarEjemplar.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_botonModificarActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botonCargar;

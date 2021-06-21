@@ -5,12 +5,25 @@
  */
 package Vista;
 
+import Controlador.Controlador;
+import javax.swing.JOptionPane;
+
 /**
  *
- * @author PC
+ * @author IanSamuels
  */
 public class IniciarSesion extends javax.swing.JFrame {
-
+    
+    private Controlador CONTROLADOR;
+    
+    /**
+     * Se llama al controlador en cada ventana
+     * @param CONTROLADOR El controlador del programa
+     */
+    public IniciarSesion(Controlador CONTROLADOR) {
+        this.CONTROLADOR = CONTROLADOR;
+        initComponents();
+    }
     /**
      * Creates new form IniciarSesion
      */
@@ -32,9 +45,8 @@ public class IniciarSesion extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         textoNombre = new javax.swing.JTextField();
         textoContraseña = new javax.swing.JTextField();
-        botonCrear = new javax.swing.JButton();
+        botonIngresar = new javax.swing.JButton();
         botonVolver = new javax.swing.JButton();
-        botonNoTengo = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -44,43 +56,46 @@ public class IniciarSesion extends javax.swing.JFrame {
 
         jLabel3.setText("Contraseña:");
 
-        botonCrear.setText("Ingresar");
+        botonIngresar.setText("Ingresar");
+        botonIngresar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonIngresarActionPerformed(evt);
+            }
+        });
 
         botonVolver.setText("Volver");
-
-        botonNoTengo.setText("No tengo cuenta de admin");
+        botonVolver.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonVolverActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(botonVolver)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGap(19, 19, 19)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(0, 16, Short.MAX_VALUE)
-                        .addComponent(botonNoTengo)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(botonCrear))
+                        .addComponent(jLabel3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(textoContraseña))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(19, 19, 19)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel3)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(textoContraseña))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel2)
-                                .addGap(23, 23, 23)
-                                .addComponent(textoNombre)))))
+                        .addComponent(jLabel2)
+                        .addGap(23, 23, 23)
+                        .addComponent(textoNombre)))
                 .addGap(25, 25, 25))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(111, Short.MAX_VALUE)
                 .addComponent(jLabel1)
                 .addGap(109, 109, 109))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(botonVolver)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(botonIngresar)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -97,15 +112,40 @@ public class IniciarSesion extends javax.swing.JFrame {
                     .addComponent(textoContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(botonCrear)
-                    .addComponent(botonNoTengo))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 23, Short.MAX_VALUE)
-                .addComponent(botonVolver)
-                .addContainerGap())
+                    .addComponent(botonIngresar)
+                    .addComponent(botonVolver))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void botonIngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonIngresarActionPerformed
+        String nombre;
+        String contra;
+        nombre = textoNombre.getText();
+        contra = textoContraseña.getText();
+        
+        if (CONTROLADOR.verificarLogin(nombre, contra)){
+            
+            JOptionPane.showMessageDialog(null, "Acceso otorgado", 
+            "InfoBox: " + "Alerta",JOptionPane.INFORMATION_MESSAGE);
+            
+            MenuAdministracion ventanaMenuAdmin = new MenuAdministracion(CONTROLADOR);
+            ventanaMenuAdmin.setVisible(true);
+            this.setVisible(false);
+            
+        } else {
+            JOptionPane.showMessageDialog(null, "Contraseña y nombre no coinciden", 
+            "InfoBox: " + "Alerta",JOptionPane.INFORMATION_MESSAGE);
+        }
+    }//GEN-LAST:event_botonIngresarActionPerformed
+
+    private void botonVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonVolverActionPerformed
+        MenuPrincipal menuPrincipal = new MenuPrincipal(CONTROLADOR);
+        menuPrincipal.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_botonVolverActionPerformed
 
     /**
      * @param args the command line arguments
@@ -144,8 +184,7 @@ public class IniciarSesion extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton botonCrear;
-    private javax.swing.JButton botonNoTengo;
+    private javax.swing.JButton botonIngresar;
     private javax.swing.JButton botonVolver;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

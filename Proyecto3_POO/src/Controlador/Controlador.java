@@ -23,8 +23,8 @@ public class Controlador {
         return manejoEjemplares.Modificar(nombre, tratamiento, tiempoDescomposicion, imagen, Categoria);
     }
     
-    public boolean nuevoAdmin(String nombre, int cedula, String contrasena){
-        return Administracion.Agregar(nombre, cedula, contrasena);
+    public boolean nuevoAdmin(String nombre, String contrasena){
+        return Administracion.Agregar(nombre, contrasena);
     }
     
     public boolean verificarLogin(String nombre, String contrasena){

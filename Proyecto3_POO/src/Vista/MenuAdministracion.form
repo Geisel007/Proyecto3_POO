@@ -70,6 +70,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Crear Admin"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botonCrearActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="botonIngresar">
       <Properties>
@@ -88,6 +91,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Modificar Ejemplar"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botonModificarActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="botonEliminar">
       <Properties>
