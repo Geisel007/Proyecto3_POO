@@ -47,6 +47,11 @@ public class MenuPrincipal extends javax.swing.JFrame {
         });
 
         botonSeccion.setText("Sección Informativa");
+        botonSeccion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonSeccionActionPerformed(evt);
+            }
+        });
 
         botonAdmin.setText("Administración");
         botonAdmin.addActionListener(new java.awt.event.ActionListener() {
@@ -125,6 +130,12 @@ public class MenuPrincipal extends javax.swing.JFrame {
         ventanaIniciarSesion.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_botonAdminActionPerformed
+
+    private void botonSeccionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonSeccionActionPerformed
+        TipoDeFiltro ventanaTipoDeFiltro = new TipoDeFiltro(CONTROLADOR);
+        ventanaTipoDeFiltro.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_botonSeccionActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
