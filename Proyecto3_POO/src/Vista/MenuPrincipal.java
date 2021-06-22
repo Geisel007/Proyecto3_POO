@@ -105,7 +105,9 @@ public class MenuPrincipal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void botonCargarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonCargarActionPerformed
-        
+       CargarEjemplar ventanaCargar = new CargarEjemplar(CONTROLADOR);
+       ventanaCargar.setVisible(true);
+       this.setVisible(false);
     }//GEN-LAST:event_botonCargarActionPerformed
 
     private void botonIngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonIngresarActionPerformed
