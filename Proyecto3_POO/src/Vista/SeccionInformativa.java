@@ -51,7 +51,6 @@ public class SeccionInformativa extends javax.swing.JFrame {
             }
         });
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/wojak.png"))); // NOI18N
         jLabel2.setText("jLabel2");
         jScrollPane1.setViewportView(jLabel2);
 
