@@ -78,16 +78,25 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Detalle de art&#xed;culos recibidos en una fecha particular"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botonRecibidosActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="botonEntregados">
       <Properties>
         <Property name="text" type="java.lang.String" value="Detalle de art&#xed;culos entregados en una fecha particular"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botonEntregadosActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="botonPendientes">
       <Properties>
         <Property name="text" type="java.lang.String" value="Detalle de art&#xed;culos pendientes de retirar"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botonPendientesActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="botonRetiro">
       <Properties>

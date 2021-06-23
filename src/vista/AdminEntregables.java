@@ -55,10 +55,25 @@ public class AdminEntregables extends javax.swing.JFrame {
         });
 
         botonRecibidos.setText("Detalle de artículos recibidos en una fecha particular");
+        botonRecibidos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonRecibidosActionPerformed(evt);
+            }
+        });
 
         botonEntregados.setText("Detalle de artículos entregados en una fecha particular");
+        botonEntregados.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonEntregadosActionPerformed(evt);
+            }
+        });
 
         botonPendientes.setText("Detalle de artículos pendientes de retirar");
+        botonPendientes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonPendientesActionPerformed(evt);
+            }
+        });
 
         botonRetiro.setText("Detalle de un retiro de artículos");
 
@@ -122,6 +137,24 @@ public class AdminEntregables extends javax.swing.JFrame {
         ventanaMenu.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_botonVolverActionPerformed
+
+    private void botonPendientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonPendientesActionPerformed
+        DetallePendientes ventanaDetallePendientes = new DetallePendientes(CONTROLADOR);
+        ventanaDetallePendientes.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_botonPendientesActionPerformed
+
+    private void botonRecibidosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonRecibidosActionPerformed
+        DetalleRecibidos ventanaDetalleRecibidos = new DetalleRecibidos(CONTROLADOR);
+        ventanaDetalleRecibidos.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_botonRecibidosActionPerformed
+
+    private void botonEntregadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonEntregadosActionPerformed
+        DetalleRetirados ventanaDetalleRetirados = new DetalleRetirados(CONTROLADOR);
+        ventanaDetalleRetirados.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_botonEntregadosActionPerformed
 
     /**
      * @param args the command line arguments

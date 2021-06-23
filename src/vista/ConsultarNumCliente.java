@@ -81,19 +81,19 @@ public class ConsultarNumCliente extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane1)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(fieldCliente))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(botonVolver)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(botonConsultar)))
+                        .addComponent(botonConsultar))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel2)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(fieldCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabel1))
+                        .addGap(0, 199, Short.MAX_VALUE)))
                 .addContainerGap())
-            .addGroup(layout.createSequentialGroup()
-                .addGap(70, 70, 70)
-                .addComponent(jLabel1)
-                .addContainerGap(79, Short.MAX_VALUE))
         );
 
         layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {botonConsultar, botonVolver});
@@ -108,8 +108,8 @@ public class ConsultarNumCliente extends javax.swing.JFrame {
                     .addComponent(jLabel2)
                     .addComponent(fieldCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 265, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(botonConsultar)
                     .addComponent(botonVolver))
@@ -141,7 +141,7 @@ public class ConsultarNumCliente extends javax.swing.JFrame {
                     try{
                         ArrayList listaCasilleros = CONTROLADOR.getCasilleros();
                         for (int j = 0; j < listaCasilleros.size(); j++){
-                            Casillero casillero = (Casillero) listaCasilleros.get(i);
+                            Casillero casillero = (Casillero) listaCasilleros.get(j);
                             if (cliente.getNumeroCasillero() == casillero.getNumero()){
 
                                 txtConsulta.append("Numero: " + casillero.getNumero()+ "\n");
@@ -152,7 +152,7 @@ public class ConsultarNumCliente extends javax.swing.JFrame {
                                 try{
                                     ArrayList listaEntregables = casillero.getListaEntregables();
                                     for (int x = 0; x < listaEntregables.size(); x++){
-                                        Entregable entregable = (Entregable) listaEntregables.get(i);
+                                        Entregable entregable = (Entregable) listaEntregables.get(x);
 
                                         txtConsulta.append("Codigo: " + entregable.getCodigo()+ "\n");
                                         txtConsulta.append("Descripción: " + entregable.getDescripcion()+ "\n");

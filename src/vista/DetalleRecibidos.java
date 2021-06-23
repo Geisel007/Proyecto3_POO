@@ -6,7 +6,10 @@
 package vista;
 
 import control.Controlador;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import javax.swing.JOptionPane;
 import modelo.Casillero;
 import modelo.Entregable;
@@ -15,18 +18,18 @@ import modelo.Entregable;
  *
  * @author IanSamuels
  */
-public class ConsultaNumCasillero extends javax.swing.JFrame {
+public class DetalleRecibidos extends javax.swing.JFrame {
 
     private Controlador CONTROLADOR;
     
-    public ConsultaNumCasillero(Controlador CONTROLADOR) {
+    public DetalleRecibidos(Controlador CONTROLADOR) {
         this.CONTROLADOR = CONTROLADOR;
         initComponents();
     }
     /**
-     * Creates new form ConsultaNumCasillero
+     * Creates new form DetalleRecibidos
      */
-    public ConsultaNumCasillero() {
+    public DetalleRecibidos() {
         initComponents();
     }
 
@@ -41,28 +44,17 @@ public class ConsultaNumCasillero extends javax.swing.JFrame {
 
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        fieldNumCasillero = new javax.swing.JTextField();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        txtConsulta = new javax.swing.JTextArea();
+        fieldFecha = new javax.swing.JTextField();
         botonConsultar = new javax.swing.JButton();
         botonVolver = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        txtConsulta = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setText("Consultar estado de casillero");
+        jLabel1.setText("Ingrese la fecha a consultar:");
 
-        jLabel2.setText("Ingrese el numero de casillero:");
-
-        fieldNumCasillero.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                fieldNumCasilleroActionPerformed(evt);
-            }
-        });
-
-        txtConsulta.setColumns(20);
-        txtConsulta.setRows(5);
-        txtConsulta.setEnabled(false);
-        jScrollPane1.setViewportView(txtConsulta);
+        jLabel2.setText("Detalle de articulos recibidos");
 
         botonConsultar.setText("Consultar");
         botonConsultar.addActionListener(new java.awt.event.ActionListener() {
@@ -78,6 +70,11 @@ public class ConsultaNumCasillero extends javax.swing.JFrame {
             }
         });
 
+        txtConsulta.setColumns(20);
+        txtConsulta.setRows(5);
+        txtConsulta.setEnabled(false);
+        jScrollPane1.setViewportView(txtConsulta);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -86,94 +83,79 @@ public class ConsultaNumCasillero extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane1)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(botonVolver)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(botonConsultar))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel2)
+                            .addComponent(botonVolver)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel2)
+                                .addComponent(jLabel1)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(fieldNumCasillero, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jLabel1))
-                        .addGap(0, 201, Short.MAX_VALUE)))
+                                .addComponent(fieldFecha, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(botonConsultar)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
-
-        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {botonConsultar, botonVolver});
-
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(21, 21, 21)
-                .addComponent(jLabel1)
+                .addGap(26, 26, 26)
+                .addComponent(jLabel2)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(fieldNumCasillero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 267, Short.MAX_VALUE)
+                    .addComponent(jLabel1)
+                    .addComponent(fieldFecha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(botonConsultar))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(botonConsultar)
-                    .addComponent(botonVolver))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 252, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(botonVolver)
                 .addContainerGap())
         );
+
+        layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {botonConsultar, fieldFecha, jLabel1});
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void fieldNumCasilleroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fieldNumCasilleroActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_fieldNumCasilleroActionPerformed
-
     private void botonVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonVolverActionPerformed
-        EstadoCasillero ventanaEstado = new EstadoCasillero(CONTROLADOR);
-        ventanaEstado.setVisible(true);
+        AdminEntregables ventanaAdminEntregables = new AdminEntregables(CONTROLADOR);
+        ventanaAdminEntregables.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_botonVolverActionPerformed
 
     private void botonConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonConsultarActionPerformed
         try{
-            int numero = Integer.parseInt(fieldNumCasillero.getText());
+            String fecha = fieldFecha.getText();
             ArrayList listaCasilleros = CONTROLADOR.getCasilleros();
-            boolean existe = false;
-
+            
             for (int i = 0; i < listaCasilleros.size(); i++){
                 Casillero casillero = (Casillero) listaCasilleros.get(i);
-                if (casillero.getNumero() == numero){
-                    
-                    existe = true;
-                    txtConsulta.append("Numero: " + casillero.getNumero()+ "\n");
-                    txtConsulta.append("Identificación del cliente: " + casillero.getCedulaCliente()+ "\n");
-                    txtConsulta.append("Entregables: " + "\n");
-                    txtConsulta.append("\n");
-                    
-                    try{
-                        ArrayList listaEntregables = CONTROLADOR.consultarEntregables(casillero.getNumero());
-                        for (int j = 0; j < listaEntregables.size(); j++){
-                            Entregable entregable = (Entregable) listaEntregables.get(j);
-
+                ArrayList listaEntregables = CONTROLADOR.consultarEntregables(casillero.getNumero());
+                
+                try{
+                    for (int j = 0; j < listaEntregables.size(); j++){
+                        Entregable entregable = (Entregable) listaEntregables.get(j);
+                        
+                        Date fechaRecibido = entregable.getFechaRecibido();
+                        DateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
+                        String strFechaRecibido = formato.format(fechaRecibido);
+                        System.out.println("fecha ingresada: " + fecha + " fecha entregable: " + strFechaRecibido);
+                        
+                        if (strFechaRecibido.equals(fecha) && entregable.isEstado()){
                             txtConsulta.append("Codigo: " + entregable.getCodigo()+ "\n");
                             txtConsulta.append("Descripción: " + entregable.getDescripcion()+ "\n");
-                            txtConsulta.append("Fecha recibido: " + entregable.getFechaRecibido()+ "\n");
+                            txtConsulta.append("Remitente: " + entregable.getRemitente()+ "\n");
                             txtConsulta.append("\n");
                         }
-                    } catch (Exception e) {
-                        JOptionPane.showMessageDialog(null, "La lista de entregables esta vacia",
-                        "InfoBox: " + "Alerta", JOptionPane.INFORMATION_MESSAGE);
-                    }
-                    
+                    } 
+                } catch (Exception e) {
+                    JOptionPane.showMessageDialog(null, "La lista de entregables esta vacia",
+                    "InfoBox: " + "Alerta", JOptionPane.INFORMATION_MESSAGE);
                 }
-            } if (existe){
-                
-            } else {
-                JOptionPane.showMessageDialog(null, "Error: El casillero no existe",
-                "InfoBox: " + "Alerta", JOptionPane.INFORMATION_MESSAGE);
-            }
+            }   
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Error: Datos ingresaods invalidos",
+            JOptionPane.showMessageDialog(null, "Error con la lista de casilleros",
             "InfoBox: " + "Alerta", JOptionPane.INFORMATION_MESSAGE);
         }
     }//GEN-LAST:event_botonConsultarActionPerformed
@@ -195,21 +177,20 @@ public class ConsultaNumCasillero extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ConsultaNumCasillero.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(DetalleRecibidos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ConsultaNumCasillero.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(DetalleRecibidos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ConsultaNumCasillero.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(DetalleRecibidos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ConsultaNumCasillero.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(DetalleRecibidos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ConsultaNumCasillero().setVisible(true);
+                new DetalleRecibidos().setVisible(true);
             }
         });
     }
@@ -217,7 +198,7 @@ public class ConsultaNumCasillero extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botonConsultar;
     private javax.swing.JButton botonVolver;
-    private javax.swing.JTextField fieldNumCasillero;
+    private javax.swing.JTextField fieldFecha;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
