@@ -40,51 +40,61 @@ public class ManejoEjemplares {
         if(Categoria.equals("Aluminio")){
             Aluminio ejemplar = new Aluminio(nombre,tratamiento,tiempoDescomposicion,imagen);
             listaEjemplares.add(ejemplar);
+            System.out.println("Ejemplar agregado: " + ejemplar.toString());
             return true;
         }
         if(Categoria.equals("Co-Procesable")){
             CoProcesable ejemplar = new CoProcesable(nombre,tratamiento,tiempoDescomposicion,imagen);
             listaEjemplares.add(ejemplar);
+            System.out.println("Ejemplar agregado: " + ejemplar.toString());
             return true;
         }
         if(Categoria.equals("Plastico")){
             Plastico ejemplar = new Plastico(nombre,tratamiento,tiempoDescomposicion,imagen);
             listaEjemplares.add(ejemplar);
+            System.out.println("Ejemplar agregado: " + ejemplar.toString());
             return true;
         }
         if(Categoria.equals("Semisintetico")){
             Semisintetico ejemplar = new Semisintetico(nombre,tratamiento,tiempoDescomposicion,imagen);
             listaEjemplares.add(ejemplar);
+            System.out.println("Ejemplar agregado: " + ejemplar.toString());
             return true;
         }
         if(Categoria.equals("Vidrio")){
             Vidrio ejemplar = new Vidrio(nombre,tratamiento,tiempoDescomposicion,imagen);
             listaEjemplares.add(ejemplar);
+            System.out.println("Ejemplar agregado: " + ejemplar.toString());
             return true;
         }
         if(Categoria.equals("Organica")){
             Organica ejemplar = new Organica(nombre,tratamiento,tiempoDescomposicion,imagen);
             listaEjemplares.add(ejemplar);
+            System.out.println("Ejemplar agregado: " + ejemplar.toString());
             return true;
         }
         if(Categoria.equals("Sanitaria")){
             Sanitaria ejemplar = new Sanitaria(nombre,tratamiento,tiempoDescomposicion,imagen);
             listaEjemplares.add(ejemplar);
+            System.out.println("Ejemplar agregado: " + ejemplar.toString());
             return true;
         }
         if(Categoria.equals("Toxica")){
             Toxica ejemplar = new Toxica(nombre,tratamiento,tiempoDescomposicion,imagen);
             listaEjemplares.add(ejemplar);
+            System.out.println("Ejemplar agregado: " + ejemplar.toString());
             return true;
         }
         if(Categoria.equals("Escombros")){
             Escombros ejemplar = new Escombros(nombre,tratamiento,tiempoDescomposicion,imagen);
             listaEjemplares.add(ejemplar);
+            System.out.println("Ejemplar agregado: " + ejemplar.toString());
             return true;
         }
         if(Categoria.equals("Electronica")){
             Electronica ejemplar = new Electronica(nombre,tratamiento,tiempoDescomposicion,imagen);
             listaEjemplares.add(ejemplar);
+            System.out.println("Ejemplar agregado: " + ejemplar.toString());
             return true;
         }
         
@@ -120,6 +130,9 @@ public class ManejoEjemplares {
    
         return false;
     }
-    
+
+    public ArrayList<Ejemplar> getListaEjemplares() {
+        return listaEjemplares;
+    }
     
 }

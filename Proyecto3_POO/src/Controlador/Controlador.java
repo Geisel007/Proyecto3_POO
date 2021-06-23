@@ -1,6 +1,9 @@
 
 package Controlador;
 
+import Modelo.Ejemplar;
+import java.util.ArrayList;
+
 /**
  * @author Geisel
  */
@@ -29,6 +32,10 @@ public class Controlador {
     
     public boolean verificarLogin(String nombre, String contrasena){
         return Administracion.validarLogin(nombre, contrasena);
+    }
+    
+    public ArrayList<Ejemplar> getListEjeplares(){
+        return manejoEjemplares.getListaEjemplares();
     }
     
 }

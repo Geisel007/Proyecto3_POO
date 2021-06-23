@@ -1,0 +1,17 @@
+*** Lista con nombres de archivos .txt con posibles ejemplares ***
+src\ArchivosExternos\botella_de_plastico.txt
+src\ArchivosExternos\bolsa_de_plastico.txt
+src\ArchivosExternos\cepillo_de_plastico.txt
+src\ArchivosExternos\cubierto_de_plastico.txt
+src\ArchivosExternos\pajilla_de_plastico.txt
+src\ArchivosExternos\platos_de_plastico.txt
+src\ArchivosExternos\lata_aluminio.txt
+src\ArchivosExternos\anilla_aluminio.txt
+src\ArchivosExternos\bateria_electronico.txt
+src\ArchivosExternos\pantalla_electronico.txt
+src\ArchivosExternos\cemento_escombro.txt
+src\ArchivosExternos\cascara_organico.txt
+src\ArchivosExternos\jeringa_sanitaria.txt
+src\ArchivosExternos\bateria_toxico.txt
+src\ArchivosExternos\aceite_sintetico.txt
+src\ArchivosExternos\botella_vidrio.txt

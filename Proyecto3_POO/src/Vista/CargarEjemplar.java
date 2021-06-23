@@ -31,9 +31,9 @@ public class CargarEjemplar extends javax.swing.JFrame {
         textoEjemplar = new javax.swing.JTextField();
         botonCargar = new javax.swing.JButton();
         botonVolver = new javax.swing.JButton();
-        label1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(204, 255, 204));
 
         jLabel1.setText("Cargar Ejemplar");
 
@@ -55,38 +55,34 @@ public class CargarEjemplar extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(27, 27, 27)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(textoEjemplar, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(botonCargar)
-                .addContainerGap(377, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(botonVolver)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(label1, javax.swing.GroupLayout.PREFERRED_SIZE, 334, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 30, 30))
+                .addGap(20, 20, 20))
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(84, 84, 84)
+                        .addComponent(textoEjemplar, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(botonCargar))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(192, 192, 192)
+                        .addComponent(jLabel1)))
+                .addContainerGap(112, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(32, 32, 32)
                 .addComponent(jLabel1)
-                .addGap(30, 30, 30)
+                .addGap(62, 62, 62)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(textoEjemplar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(botonCargar))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(botonVolver)
-                        .addContainerGap())
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(label1, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(19, 19, 19))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 75, Short.MAX_VALUE)
+                .addComponent(botonVolver)
+                .addGap(24, 24, 24))
         );
 
         pack();
@@ -119,14 +115,14 @@ public class CargarEjemplar extends javax.swing.JFrame {
             String linea;          
             int j = 0;
             while((linea=br.readLine())!=null){
-               System.out.println("linea: " + linea); 
+               //System.out.println("linea: " + linea); 
                j++;
                switch(j){
-                   case 1: nombre = linea;
-                   case 2: categoria = linea;
-                   case 3: tratamiento = linea;
-                   case 4: tiempo = linea;
-                   case 5: imagen = linea;
+                   case 1: nombre = linea; break;
+                   case 2: categoria = linea; break;
+                   case 3: tiempo = linea; break;
+                   case 4: imagen = linea; break;
+                   default: tratamiento += linea; break;
                }
             }
         } 
@@ -174,7 +170,7 @@ public class CargarEjemplar extends javax.swing.JFrame {
         }
 
         if(CONTROLADOR.nuevoEjemplar(nombre, tratamiento, tiempo, imagen, categoria)){  
-                label1.setIcon(new javax.swing.ImageIcon(getClass().getResource(imagen)));
+                //label1.setIcon(new javax.swing.ImageIcon(getClass().getResource(imagen)));
                 //"/Imagenes/botella_de_plastico.jpg"
                return true;
         } else {
@@ -193,7 +189,6 @@ public class CargarEjemplar extends javax.swing.JFrame {
     private javax.swing.JButton botonCargar;
     private javax.swing.JButton botonVolver;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel label1;
     private javax.swing.JTextField textoEjemplar;
     // End of variables declaration//GEN-END:variables
 }

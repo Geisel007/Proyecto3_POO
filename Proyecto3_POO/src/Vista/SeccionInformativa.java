@@ -6,6 +6,18 @@
 package Vista;
 
 import Controlador.Controlador;
+import Modelo.Aluminio;
+import Modelo.CoProcesable;
+import Modelo.Ejemplar;
+import Modelo.Electronica;
+import Modelo.Escombros;
+import Modelo.Organica;
+import Modelo.Plastico;
+import Modelo.Sanitaria;
+import Modelo.Semisintetico;
+import Modelo.Toxica;
+import Modelo.Vidrio;
+import java.util.ArrayList;
 
 /**
  *
@@ -18,12 +30,15 @@ public class SeccionInformativa extends javax.swing.JFrame {
     public SeccionInformativa(Controlador CONTROLADOR, String categoria) {
         initComponents();
         this.CONTROLADOR = CONTROLADOR;
-    }
-    /**
-     * Creates new form SeccionInformativa
-     */
-    public SeccionInformativa() {
-        initComponents();
+        this.categoria = categoria; 
+        labelTitulo.setText("Categoría: " + categoria);
+        Panel1.setVisible(false);
+        Panel2.setVisible(false);
+        Panel3.setVisible(false);
+        Panel4.setVisible(false);
+        Panel5.setVisible(false);
+        Panel6.setVisible(false);
+        cargarCategoria();
     }
 
     /**
@@ -35,67 +50,601 @@ public class SeccionInformativa extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        botonSalir = new javax.swing.JButton();
+        jPanel1 = new javax.swing.JPanel();
+        Panel1 = new javax.swing.JPanel();
+        label1 = new javax.swing.JLabel();
+        imagen1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jLabel2 = new javax.swing.JLabel();
+        jList1 = new javax.swing.JList<>();
+        labelTitulo = new javax.swing.JLabel();
+        botonSalir = new javax.swing.JButton();
+        Panel2 = new javax.swing.JPanel();
+        label2 = new javax.swing.JLabel();
+        imagen2 = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jList2 = new javax.swing.JList<>();
+        Panel3 = new javax.swing.JPanel();
+        label3 = new javax.swing.JLabel();
+        imagen3 = new javax.swing.JLabel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        jList3 = new javax.swing.JList<>();
+        Panel4 = new javax.swing.JPanel();
+        label4 = new javax.swing.JLabel();
+        imagen4 = new javax.swing.JLabel();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        jList4 = new javax.swing.JList<>();
+        Panel5 = new javax.swing.JPanel();
+        label5 = new javax.swing.JLabel();
+        imagen5 = new javax.swing.JLabel();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        jList5 = new javax.swing.JList<>();
+        Panel6 = new javax.swing.JPanel();
+        label6 = new javax.swing.JLabel();
+        imagen6 = new javax.swing.JLabel();
+        jScrollPane6 = new javax.swing.JScrollPane();
+        jList6 = new javax.swing.JList<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(204, 255, 204));
+        setForeground(new java.awt.Color(204, 255, 204));
 
-        jLabel1.setText("Sección informativa");
+        jPanel1.setBackground(new java.awt.Color(204, 255, 204));
+        jPanel1.setForeground(new java.awt.Color(204, 255, 204));
 
-        botonSalir.setText("Salir");
+        Panel1.setBackground(new java.awt.Color(255, 255, 255));
+        Panel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        Panel1.setForeground(new java.awt.Color(255, 255, 255));
+
+        label1.setBackground(new java.awt.Color(0, 0, 0));
+        label1.setFont(new java.awt.Font("Lucida Bright", 0, 14)); // NOI18N
+        label1.setForeground(new java.awt.Color(0, 0, 0));
+        label1.setText("Ejemplar1");
+
+        imagen1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/botella_de_plastico.jpg"))); // NOI18N
+
+        jList1.setBackground(new java.awt.Color(255, 255, 255));
+        jList1.setFont(new java.awt.Font("Lucida Bright", 0, 12)); // NOI18N
+        jList1.setForeground(new java.awt.Color(255, 255, 255));
+        jList1.setModel(new javax.swing.AbstractListModel<String>() {
+            String[] strings = { "Tiempo de Descomposición:", "Tratamiento:", " " };
+            public int getSize() { return strings.length; }
+            public String getElementAt(int i) { return strings[i]; }
+        });
+        jList1.setEnabled(false);
+        jScrollPane1.setViewportView(jList1);
+
+        javax.swing.GroupLayout Panel1Layout = new javax.swing.GroupLayout(Panel1);
+        Panel1.setLayout(Panel1Layout);
+        Panel1Layout.setHorizontalGroup(
+            Panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(Panel1Layout.createSequentialGroup()
+                .addGap(19, 19, 19)
+                .addComponent(label1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Panel1Layout.createSequentialGroup()
+                .addGap(0, 43, Short.MAX_VALUE)
+                .addComponent(imagen1)
+                .addGap(42, 42, 42))
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING)
+        );
+        Panel1Layout.setVerticalGroup(
+            Panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(Panel1Layout.createSequentialGroup()
+                .addContainerGap(14, Short.MAX_VALUE)
+                .addComponent(label1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(imagen1)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+
+        labelTitulo.setFont(new java.awt.Font("Lucida Bright", 0, 18)); // NOI18N
+        labelTitulo.setForeground(new java.awt.Color(0, 0, 0));
+        labelTitulo.setText("Sección Informativa");
+
+        botonSalir.setBackground(new java.awt.Color(255, 255, 255));
+        botonSalir.setForeground(new java.awt.Color(0, 0, 0));
+        botonSalir.setText("Volver");
         botonSalir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botonSalirActionPerformed(evt);
             }
         });
 
-        jLabel2.setText("jLabel2");
-        jScrollPane1.setViewportView(jLabel2);
+        Panel2.setBackground(new java.awt.Color(255, 255, 255));
+        Panel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        Panel2.setForeground(new java.awt.Color(255, 255, 255));
+
+        label2.setBackground(new java.awt.Color(0, 0, 0));
+        label2.setFont(new java.awt.Font("Lucida Bright", 0, 14)); // NOI18N
+        label2.setForeground(new java.awt.Color(0, 0, 0));
+        label2.setText("Ejemplar2");
+
+        imagen2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/botella_de_plastico.jpg"))); // NOI18N
+
+        jList2.setBackground(new java.awt.Color(255, 255, 255));
+        jList2.setFont(new java.awt.Font("Lucida Bright", 0, 12)); // NOI18N
+        jList2.setForeground(new java.awt.Color(255, 255, 255));
+        jList2.setModel(new javax.swing.AbstractListModel<String>() {
+            String[] strings = { "Tiempo de Descomposición:", "Tratamiento:", " " };
+            public int getSize() { return strings.length; }
+            public String getElementAt(int i) { return strings[i]; }
+        });
+        jList2.setEnabled(false);
+        jScrollPane2.setViewportView(jList2);
+
+        javax.swing.GroupLayout Panel2Layout = new javax.swing.GroupLayout(Panel2);
+        Panel2.setLayout(Panel2Layout);
+        Panel2Layout.setHorizontalGroup(
+            Panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(Panel2Layout.createSequentialGroup()
+                .addGap(19, 19, 19)
+                .addComponent(label2)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Panel2Layout.createSequentialGroup()
+                .addGap(0, 43, Short.MAX_VALUE)
+                .addComponent(imagen2)
+                .addGap(42, 42, 42))
+            .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING)
+        );
+        Panel2Layout.setVerticalGroup(
+            Panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(Panel2Layout.createSequentialGroup()
+                .addContainerGap(14, Short.MAX_VALUE)
+                .addComponent(label2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(imagen2)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+
+        Panel3.setBackground(new java.awt.Color(255, 255, 255));
+        Panel3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        Panel3.setForeground(new java.awt.Color(255, 255, 255));
+
+        label3.setBackground(new java.awt.Color(0, 0, 0));
+        label3.setFont(new java.awt.Font("Lucida Bright", 0, 14)); // NOI18N
+        label3.setForeground(new java.awt.Color(0, 0, 0));
+        label3.setText("Ejemplar4");
+
+        imagen3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/botella_de_plastico.jpg"))); // NOI18N
+
+        jList3.setBackground(new java.awt.Color(255, 255, 255));
+        jList3.setFont(new java.awt.Font("Lucida Bright", 0, 12)); // NOI18N
+        jList3.setForeground(new java.awt.Color(255, 255, 255));
+        jList3.setModel(new javax.swing.AbstractListModel<String>() {
+            String[] strings = { "Tiempo de Descomposición:", "Tratamiento:" };
+            public int getSize() { return strings.length; }
+            public String getElementAt(int i) { return strings[i]; }
+        });
+        jList3.setEnabled(false);
+        jScrollPane3.setViewportView(jList3);
+
+        javax.swing.GroupLayout Panel3Layout = new javax.swing.GroupLayout(Panel3);
+        Panel3.setLayout(Panel3Layout);
+        Panel3Layout.setHorizontalGroup(
+            Panel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(Panel3Layout.createSequentialGroup()
+                .addGap(19, 19, 19)
+                .addComponent(label3)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Panel3Layout.createSequentialGroup()
+                .addGap(0, 43, Short.MAX_VALUE)
+                .addComponent(imagen3)
+                .addGap(42, 42, 42))
+            .addComponent(jScrollPane3, javax.swing.GroupLayout.Alignment.TRAILING)
+        );
+        Panel3Layout.setVerticalGroup(
+            Panel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(Panel3Layout.createSequentialGroup()
+                .addContainerGap(14, Short.MAX_VALUE)
+                .addComponent(label3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(imagen3)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+
+        Panel4.setBackground(new java.awt.Color(255, 255, 255));
+        Panel4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        Panel4.setForeground(new java.awt.Color(255, 255, 255));
+
+        label4.setBackground(new java.awt.Color(0, 0, 0));
+        label4.setFont(new java.awt.Font("Lucida Bright", 0, 14)); // NOI18N
+        label4.setForeground(new java.awt.Color(0, 0, 0));
+        label4.setText("Ejemplar5");
+
+        imagen4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/botella_de_plastico.jpg"))); // NOI18N
+
+        jList4.setBackground(new java.awt.Color(255, 255, 255));
+        jList4.setFont(new java.awt.Font("Lucida Bright", 0, 12)); // NOI18N
+        jList4.setForeground(new java.awt.Color(255, 255, 255));
+        jList4.setModel(new javax.swing.AbstractListModel<String>() {
+            String[] strings = { "Tiempo de Descomposición:", "Tratamiento:" };
+            public int getSize() { return strings.length; }
+            public String getElementAt(int i) { return strings[i]; }
+        });
+        jList4.setEnabled(false);
+        jScrollPane4.setViewportView(jList4);
+
+        javax.swing.GroupLayout Panel4Layout = new javax.swing.GroupLayout(Panel4);
+        Panel4.setLayout(Panel4Layout);
+        Panel4Layout.setHorizontalGroup(
+            Panel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(Panel4Layout.createSequentialGroup()
+                .addGap(19, 19, 19)
+                .addComponent(label4)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Panel4Layout.createSequentialGroup()
+                .addGap(0, 43, Short.MAX_VALUE)
+                .addComponent(imagen4)
+                .addGap(42, 42, 42))
+            .addComponent(jScrollPane4, javax.swing.GroupLayout.Alignment.TRAILING)
+        );
+        Panel4Layout.setVerticalGroup(
+            Panel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(Panel4Layout.createSequentialGroup()
+                .addContainerGap(14, Short.MAX_VALUE)
+                .addComponent(label4)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(imagen4)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+
+        Panel5.setBackground(new java.awt.Color(255, 255, 255));
+        Panel5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        Panel5.setForeground(new java.awt.Color(255, 255, 255));
+
+        label5.setBackground(new java.awt.Color(0, 0, 0));
+        label5.setFont(new java.awt.Font("Lucida Bright", 0, 14)); // NOI18N
+        label5.setForeground(new java.awt.Color(0, 0, 0));
+        label5.setText("Ejemplar3");
+
+        imagen5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/botella_de_plastico.jpg"))); // NOI18N
+
+        jList5.setBackground(new java.awt.Color(255, 255, 255));
+        jList5.setFont(new java.awt.Font("Lucida Bright", 0, 12)); // NOI18N
+        jList5.setForeground(new java.awt.Color(255, 255, 255));
+        jList5.setModel(new javax.swing.AbstractListModel<String>() {
+            String[] strings = { "Tiempo de Descomposición:", "Tratamiento:" };
+            public int getSize() { return strings.length; }
+            public String getElementAt(int i) { return strings[i]; }
+        });
+        jList5.setEnabled(false);
+        jScrollPane5.setViewportView(jList5);
+
+        javax.swing.GroupLayout Panel5Layout = new javax.swing.GroupLayout(Panel5);
+        Panel5.setLayout(Panel5Layout);
+        Panel5Layout.setHorizontalGroup(
+            Panel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(Panel5Layout.createSequentialGroup()
+                .addGap(19, 19, 19)
+                .addComponent(label5)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Panel5Layout.createSequentialGroup()
+                .addGap(0, 43, Short.MAX_VALUE)
+                .addComponent(imagen5)
+                .addGap(42, 42, 42))
+            .addComponent(jScrollPane5, javax.swing.GroupLayout.Alignment.TRAILING)
+        );
+        Panel5Layout.setVerticalGroup(
+            Panel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(Panel5Layout.createSequentialGroup()
+                .addContainerGap(14, Short.MAX_VALUE)
+                .addComponent(label5)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(imagen5)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+
+        Panel6.setBackground(new java.awt.Color(255, 255, 255));
+        Panel6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        Panel6.setForeground(new java.awt.Color(255, 255, 255));
+
+        label6.setBackground(new java.awt.Color(0, 0, 0));
+        label6.setFont(new java.awt.Font("Lucida Bright", 0, 14)); // NOI18N
+        label6.setForeground(new java.awt.Color(0, 0, 0));
+        label6.setText("Ejemplar6");
+
+        imagen6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/botella_de_plastico.jpg"))); // NOI18N
+
+        jList6.setBackground(new java.awt.Color(255, 255, 255));
+        jList6.setFont(new java.awt.Font("Lucida Bright", 0, 12)); // NOI18N
+        jList6.setForeground(new java.awt.Color(255, 255, 255));
+        jList6.setModel(new javax.swing.AbstractListModel<String>() {
+            String[] strings = { "Tiempo de Descomposición:", "Tratamiento:" };
+            public int getSize() { return strings.length; }
+            public String getElementAt(int i) { return strings[i]; }
+        });
+        jList6.setEnabled(false);
+        jScrollPane6.setViewportView(jList6);
+
+        javax.swing.GroupLayout Panel6Layout = new javax.swing.GroupLayout(Panel6);
+        Panel6.setLayout(Panel6Layout);
+        Panel6Layout.setHorizontalGroup(
+            Panel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(Panel6Layout.createSequentialGroup()
+                .addGap(19, 19, 19)
+                .addComponent(label6)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Panel6Layout.createSequentialGroup()
+                .addGap(0, 43, Short.MAX_VALUE)
+                .addComponent(imagen6)
+                .addGap(42, 42, 42))
+            .addComponent(jScrollPane6, javax.swing.GroupLayout.Alignment.TRAILING)
+        );
+        Panel6Layout.setVerticalGroup(
+            Panel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(Panel6Layout.createSequentialGroup()
+                .addContainerGap(14, Short.MAX_VALUE)
+                .addComponent(label6)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(imagen6)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(Panel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(Panel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(Panel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(Panel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(Panel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(Panel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(15, 15, 15)
+                .addComponent(labelTitulo)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(botonSalir)
+                .addGap(20, 20, 20))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(21, 21, 21)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(labelTitulo)
+                    .addComponent(botonSalir))
+                .addGap(25, 25, 25)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(Panel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Panel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Panel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(Panel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Panel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Panel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(17, Short.MAX_VALUE))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1)
-                            .addComponent(botonSalir))
-                        .addGap(0, 198, Short.MAX_VALUE)))
-                .addContainerGap())
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(botonSalir)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    
+    private void cargarCategoria() {
+        //src\ArchivosExternos\botella_de_plastico.txt
+        ArrayList<Ejemplar> listaEjemplares = CONTROLADOR.getListEjeplares();
+        int j = 0;
+        for (int i = 0; i < listaEjemplares.size(); i++) {
+             Ejemplar get = listaEjemplares.get(i);
+             System.out.println("Ejemplar a mostrar en pantalla: " + get.toString());
+            if(get instanceof Aluminio && categoria.equals("Aluminio")){
+                j++;
+               imprimirPanel(j,get);
+            }if(get instanceof CoProcesable && categoria.equals("CoProcesable")){
+                j++;
+               imprimirPanel(j,get); 
+            }if(get instanceof Electronica && categoria.equals("Electronica")){
+                j++;
+               imprimirPanel(j,get);
+            }if(get instanceof Escombros && categoria.equals("Escombros")){
+               j++;
+               imprimirPanel(j,get);
+            }if(get instanceof Organica && categoria.equals("Organica")){
+               j++;
+               imprimirPanel(j,get);
+            }if(get instanceof Plastico && categoria.equals("Plastico")){
+               j++;
+               imprimirPanel(j,get);
+            }if(get instanceof Sanitaria && categoria.equals("Sanitaria")){
+               j++;
+               imprimirPanel(j,get);
+            }if(get instanceof Semisintetico && categoria.equals("Semisintetico")){
+                j++;
+               imprimirPanel(j,get);
+            }if(get instanceof Toxica && categoria.equals("Toxica")){
+               j++;
+               imprimirPanel(j,get); 
+            }if(get instanceof Vidrio && categoria.equals("Vidrio")){
+               j++;
+               imprimirPanel(j,get);  
+            }
+        }
+        
+    }
+    
+    private void imprimirPanel(int j, Ejemplar ejemplar){
+        //label1.setIcon(new javax.swing.ImageIcon(getClass().getResource(imagen)));
+        ///Imagenes/botella_de_plastico.jpg
+        String[] strings = new String[10];
+        for (int i = 0; i < strings.length; i++) {
+            strings[i] = "";
+        }
+        strings[0] = "Tiempo de Descomposición: ";
+        strings[1] = ejemplar.getTiempoDescomposicion();
+        strings[2] = "Tratamiento: ";
+        String tratamiento = ejemplar.getTratamiento();
+        int k = 3;
+        for (int i = 0; i < tratamiento.length(); i++) {
+            char caracter = tratamiento.charAt(i);
+            if(i < 50){
+                strings[k] += caracter;
+            }
+            if(i > 50 && i <= 100){
+                strings[k] += caracter;
+            }
+            if(i > 100 && i <= 150){
+                strings[k] += caracter;
+            }
+            if(i > 150 && i <= 200){
+                strings[k] += caracter;
+            }
+            if(i > 200 && i <= 250){
+                strings[k] += caracter;
+            }
+            if(i > 250 && i <= 300){
+                strings[k] += caracter;
+            }
+            if(i > 300 && i <= 350){
+                strings[k] += caracter;
+            }
+            if(i == 50 || i == 100 || i == 150 || i == 200 || i == 250 || i == 300 || i == 350){
+                k++;
+            }
+        }
+        switch(j){
+                   case 1: 
+                       System.out.println("panel 1");
+                       Panel1.setVisible(true);
+                       label1.setText(ejemplar.getNombre());
+                       imagen1.setIcon(new javax.swing.ImageIcon(getClass().getResource(ejemplar.getImagen())));
+                       jList1.setModel(new javax.swing.AbstractListModel<String>() {
+                            @Override
+                            public int getSize() { return strings.length; }
+                            @Override
+                            public String getElementAt(int i) { return strings[i]; }
+                        });
+                       break;
+                   case 2:  
+                       System.out.println("panel 2");
+                       Panel2.setVisible(true);
+                       label2.setText(ejemplar.getNombre());
+                       imagen2.setIcon(new javax.swing.ImageIcon(getClass().getResource(ejemplar.getImagen())));
+                       jList2.setModel(new javax.swing.AbstractListModel<String>() {
+                            @Override
+                            public int getSize() { return strings.length; }
+                            @Override
+                            public String getElementAt(int i) { return strings[i]; }
+                        });
+                       break;
+                   case 3:  
+                       System.out.println("panel 3");
+                       Panel3.setVisible(true);
+                       label3.setText(ejemplar.getNombre());
+                       imagen3.setIcon(new javax.swing.ImageIcon(getClass().getResource(ejemplar.getImagen())));
+                       jList3.setModel(new javax.swing.AbstractListModel<String>() {
+                            @Override
+                            public int getSize() { return strings.length; }
+                            @Override
+                            public String getElementAt(int i) { return strings[i]; }
+                        });
+                       break;
+                   case 4: 
+                       System.out.println("panel 4");
+                       Panel4.setVisible(true);
+                       label4.setText(ejemplar.getNombre());
+                       imagen4.setIcon(new javax.swing.ImageIcon(getClass().getResource(ejemplar.getImagen())));
+                       jList4.setModel(new javax.swing.AbstractListModel<String>() {
+                            @Override
+                            public int getSize() { return strings.length; }
+                            @Override
+                            public String getElementAt(int i) { return strings[i]; }
+                        });
+                       break;
+                   case 5: 
+                       System.out.println("panel 5");
+                       Panel5.setVisible(true);
+                       label5.setText(ejemplar.getNombre());
+                       imagen5.setIcon(new javax.swing.ImageIcon(getClass().getResource(ejemplar.getImagen())));
+                       jList5.setModel(new javax.swing.AbstractListModel<String>() {
+                            @Override
+                            public int getSize() { return strings.length; }
+                            @Override
+                            public String getElementAt(int i) { return strings[i]; }
+                        });
+                       break;
+                   case 6: 
+                       System.out.println("panel 6");
+                       Panel6.setVisible(true);
+                       label6.setText(ejemplar.getNombre());
+                       imagen6.setIcon(new javax.swing.ImageIcon(getClass().getResource(ejemplar.getImagen())));
+                       jList6.setModel(new javax.swing.AbstractListModel<String>() {
+                            @Override
+                            public int getSize() { return strings.length; }
+                            @Override
+                            public String getElementAt(int i) { return strings[i]; }
+                        });
+                       break;
+               }
+    }
+    
     private void botonSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonSalirActionPerformed
-        MenuPrincipal ventanaMenuPrincipal = new MenuPrincipal(CONTROLADOR);
-        ventanaMenuPrincipal.setVisible(true);
+        TipoDeFiltro ventanaTipoDeFiltro= new TipoDeFiltro(CONTROLADOR);
+        ventanaTipoDeFiltro.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_botonSalirActionPerformed
 
-    
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel Panel1;
+    private javax.swing.JPanel Panel2;
+    private javax.swing.JPanel Panel3;
+    private javax.swing.JPanel Panel4;
+    private javax.swing.JPanel Panel5;
+    private javax.swing.JPanel Panel6;
     private javax.swing.JButton botonSalir;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel imagen1;
+    private javax.swing.JLabel imagen2;
+    private javax.swing.JLabel imagen3;
+    private javax.swing.JLabel imagen4;
+    private javax.swing.JLabel imagen5;
+    private javax.swing.JLabel imagen6;
+    private javax.swing.JList<String> jList1;
+    private javax.swing.JList<String> jList2;
+    private javax.swing.JList<String> jList3;
+    private javax.swing.JList<String> jList4;
+    private javax.swing.JList<String> jList5;
+    private javax.swing.JList<String> jList6;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JScrollPane jScrollPane5;
+    private javax.swing.JScrollPane jScrollPane6;
+    private javax.swing.JLabel label1;
+    private javax.swing.JLabel label2;
+    private javax.swing.JLabel label3;
+    private javax.swing.JLabel label4;
+    private javax.swing.JLabel label5;
+    private javax.swing.JLabel label6;
+    private javax.swing.JLabel labelTitulo;
     // End of variables declaration//GEN-END:variables
+
 }

@@ -51,5 +51,12 @@ public abstract class Ejemplar {
     public void setImagen(String imagen) {
         this.imagen = imagen;
     }
+
+    @Override
+    public String toString() {
+        return "Ejemplar{" + "nombre=" + nombre + ", tratamiento=" + tratamiento + ", tiempoDescomposicion=" + tiempoDescomposicion + ", imagen=" + imagen + '}';
+    }
+    
+    
     
 }
