@@ -97,12 +97,10 @@ public class SeccionInformativa extends javax.swing.JFrame {
 
         label1.setBackground(new java.awt.Color(0, 0, 0));
         label1.setFont(new java.awt.Font("Lucida Bright", 0, 14)); // NOI18N
-        label1.setForeground(new java.awt.Color(0, 0, 0));
         label1.setText("Ejemplar1");
 
         imagen1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/botella_de_plastico.jpg"))); // NOI18N
 
-        jList1.setBackground(new java.awt.Color(255, 255, 255));
         jList1.setFont(new java.awt.Font("Lucida Bright", 0, 12)); // NOI18N
         jList1.setForeground(new java.awt.Color(255, 255, 255));
         jList1.setModel(new javax.swing.AbstractListModel<String>() {
@@ -139,11 +137,9 @@ public class SeccionInformativa extends javax.swing.JFrame {
         );
 
         labelTitulo.setFont(new java.awt.Font("Lucida Bright", 0, 18)); // NOI18N
-        labelTitulo.setForeground(new java.awt.Color(0, 0, 0));
         labelTitulo.setText("Sección Informativa");
 
         botonSalir.setBackground(new java.awt.Color(255, 255, 255));
-        botonSalir.setForeground(new java.awt.Color(0, 0, 0));
         botonSalir.setText("Volver");
         botonSalir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -157,12 +153,10 @@ public class SeccionInformativa extends javax.swing.JFrame {
 
         label2.setBackground(new java.awt.Color(0, 0, 0));
         label2.setFont(new java.awt.Font("Lucida Bright", 0, 14)); // NOI18N
-        label2.setForeground(new java.awt.Color(0, 0, 0));
         label2.setText("Ejemplar2");
 
         imagen2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/botella_de_plastico.jpg"))); // NOI18N
 
-        jList2.setBackground(new java.awt.Color(255, 255, 255));
         jList2.setFont(new java.awt.Font("Lucida Bright", 0, 12)); // NOI18N
         jList2.setForeground(new java.awt.Color(255, 255, 255));
         jList2.setModel(new javax.swing.AbstractListModel<String>() {
@@ -204,12 +198,10 @@ public class SeccionInformativa extends javax.swing.JFrame {
 
         label3.setBackground(new java.awt.Color(0, 0, 0));
         label3.setFont(new java.awt.Font("Lucida Bright", 0, 14)); // NOI18N
-        label3.setForeground(new java.awt.Color(0, 0, 0));
         label3.setText("Ejemplar4");
 
         imagen3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/botella_de_plastico.jpg"))); // NOI18N
 
-        jList3.setBackground(new java.awt.Color(255, 255, 255));
         jList3.setFont(new java.awt.Font("Lucida Bright", 0, 12)); // NOI18N
         jList3.setForeground(new java.awt.Color(255, 255, 255));
         jList3.setModel(new javax.swing.AbstractListModel<String>() {
@@ -251,12 +243,10 @@ public class SeccionInformativa extends javax.swing.JFrame {
 
         label4.setBackground(new java.awt.Color(0, 0, 0));
         label4.setFont(new java.awt.Font("Lucida Bright", 0, 14)); // NOI18N
-        label4.setForeground(new java.awt.Color(0, 0, 0));
         label4.setText("Ejemplar5");
 
         imagen4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/botella_de_plastico.jpg"))); // NOI18N
 
-        jList4.setBackground(new java.awt.Color(255, 255, 255));
         jList4.setFont(new java.awt.Font("Lucida Bright", 0, 12)); // NOI18N
         jList4.setForeground(new java.awt.Color(255, 255, 255));
         jList4.setModel(new javax.swing.AbstractListModel<String>() {
@@ -298,12 +288,10 @@ public class SeccionInformativa extends javax.swing.JFrame {
 
         label5.setBackground(new java.awt.Color(0, 0, 0));
         label5.setFont(new java.awt.Font("Lucida Bright", 0, 14)); // NOI18N
-        label5.setForeground(new java.awt.Color(0, 0, 0));
         label5.setText("Ejemplar3");
 
         imagen5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/botella_de_plastico.jpg"))); // NOI18N
 
-        jList5.setBackground(new java.awt.Color(255, 255, 255));
         jList5.setFont(new java.awt.Font("Lucida Bright", 0, 12)); // NOI18N
         jList5.setForeground(new java.awt.Color(255, 255, 255));
         jList5.setModel(new javax.swing.AbstractListModel<String>() {
@@ -345,12 +333,10 @@ public class SeccionInformativa extends javax.swing.JFrame {
 
         label6.setBackground(new java.awt.Color(0, 0, 0));
         label6.setFont(new java.awt.Font("Lucida Bright", 0, 14)); // NOI18N
-        label6.setForeground(new java.awt.Color(0, 0, 0));
         label6.setText("Ejemplar6");
 
         imagen6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/botella_de_plastico.jpg"))); // NOI18N
 
-        jList6.setBackground(new java.awt.Color(255, 255, 255));
         jList6.setFont(new java.awt.Font("Lucida Bright", 0, 12)); // NOI18N
         jList6.setForeground(new java.awt.Color(255, 255, 255));
         jList6.setModel(new javax.swing.AbstractListModel<String>() {
@@ -391,16 +377,15 @@ public class SeccionInformativa extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
                         .addComponent(Panel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(Panel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(Panel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
                         .addComponent(Panel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(Panel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -485,6 +470,9 @@ public class SeccionInformativa extends javax.swing.JFrame {
             }if(get instanceof Vidrio && categoria.equals("Vidrio")){
                j++;
                imprimirPanel(j,get);  
+            }if(categoria.equals("General")){
+               j++;
+               imprimirPanel(j,get);
             }
         }
         
