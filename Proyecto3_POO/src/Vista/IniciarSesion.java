@@ -23,6 +23,8 @@ public class IniciarSesion extends javax.swing.JFrame {
     public IniciarSesion(Controlador CONTROLADOR) {
         this.CONTROLADOR = CONTROLADOR;
         initComponents();
+        setLocationRelativeTo(null);
+        getContentPane().setBackground(new java.awt.Color(204, 255, 204));
     }
     /**
      * Creates new form IniciarSesion
@@ -111,7 +113,7 @@ public class IniciarSesion extends javax.swing.JFrame {
                     .addComponent(jLabel3)
                     .addComponent(textoContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(botonIngresar)
                     .addComponent(botonVolver))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))

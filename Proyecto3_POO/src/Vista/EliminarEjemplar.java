@@ -15,6 +15,8 @@ public class EliminarEjemplar extends javax.swing.JFrame {
     public EliminarEjemplar(Controlador CONTROLADOR) {
         initComponents();
         this.CONTROLADOR = CONTROLADOR;
+        setLocationRelativeTo(null);
+        getContentPane().setBackground(new java.awt.Color(204, 255, 204));
     }
 
     @SuppressWarnings("unchecked")

@@ -2,6 +2,12 @@
 package Vista;
 
 import Controlador.Controlador;
+import Modelo.Ejemplar;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.util.ArrayList;
 
 /**
  *
@@ -14,6 +20,8 @@ public class MenuPrincipal extends javax.swing.JFrame {
     public MenuPrincipal(Controlador CONTROLADOR) {
         initComponents();
         this.CONTROLADOR = CONTROLADOR;
+        setLocationRelativeTo(null);
+        getContentPane().setBackground(new java.awt.Color(204, 255, 204));
     }
 
     
@@ -122,6 +130,36 @@ public class MenuPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_botonIngresarActionPerformed
 
     private void botonSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonSalirActionPerformed
+        //Guardar array list
+        ArrayList<Ejemplar> listaEjemplares = CONTROLADOR.getListEjeplares();
+       // ArrayList<Ejemplar> listaEjemplares2;
+         try {
+            System.out.print("Guardando ArrayList en el fichero objetos.dat.. ");
+
+            ObjectOutputStream escribiendoFichero = new ObjectOutputStream( 
+            new FileOutputStream("objetos.dat"));
+            escribiendoFichero.writeObject(listaEjemplares);
+            escribiendoFichero.close();
+
+            System.out.println("ok!");
+//            System.out.print("Leyendo ArrayList del fichero objetos.dat.. ");
+//
+//            ObjectInputStream leyendoFichero = new ObjectInputStream( 
+//            new FileInputStream("objetos.dat") );
+//            listaEjemplares2 = ( ArrayList <Ejemplar> )leyendoFichero.readObject();
+//            leyendoFichero.close();
+//
+//            System.out.println("ok!");
+//            System.out.println("Datos leídos del fichero:");
+//            
+//            for(int i = 0; i < listaEjemplares2.size(); i++) {
+//                System.out.println( "arrayList2[" + i + "] = " + listaEjemplares2.get(i) );
+//            }
+            
+        } catch (Exception e) {
+            System.out.println( e.getMessage() );
+        }
+         
         this.setVisible(false);
     }//GEN-LAST:event_botonSalirActionPerformed
 

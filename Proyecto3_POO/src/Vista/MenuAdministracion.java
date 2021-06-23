@@ -14,6 +14,8 @@ public class MenuAdministracion extends javax.swing.JFrame {
     public MenuAdministracion(Controlador CONTROLADOR) {
         initComponents();
         this.CONTROLADOR = CONTROLADOR;
+        setLocationRelativeTo(null);
+        getContentPane().setBackground(new java.awt.Color(204, 255, 204));
     }
 
     @SuppressWarnings("unchecked")

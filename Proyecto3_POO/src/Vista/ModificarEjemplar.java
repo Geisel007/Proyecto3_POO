@@ -22,6 +22,8 @@ public class ModificarEjemplar extends javax.swing.JFrame {
     public ModificarEjemplar(Controlador CONTROLADOR) {
         this.CONTROLADOR = CONTROLADOR;
         initComponents();
+        setLocationRelativeTo(null);
+        getContentPane().setBackground(new java.awt.Color(204, 255, 204));
     }
     /**
      * Creates new form ModificarEjemplar

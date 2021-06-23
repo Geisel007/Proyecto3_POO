@@ -39,6 +39,8 @@ public class SeccionInformativa extends javax.swing.JFrame {
         Panel5.setVisible(false);
         Panel6.setVisible(false);
         cargarCategoria();
+        setLocationRelativeTo(null);
+        getContentPane().setBackground(new java.awt.Color(204, 255, 204));
     }
 
     /**

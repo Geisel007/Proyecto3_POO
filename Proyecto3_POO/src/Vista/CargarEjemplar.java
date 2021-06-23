@@ -2,6 +2,7 @@
 package Vista;
 
 import Controlador.Controlador;
+import java.awt.Color;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -21,6 +22,8 @@ public class CargarEjemplar extends javax.swing.JFrame {
     public CargarEjemplar(Controlador CONTROLADOR) {
         initComponents();
         this.CONTROLADOR = CONTROLADOR;
+        setLocationRelativeTo(null);
+        getContentPane().setBackground(new java.awt.Color(204, 255, 204));
     }
 
     @SuppressWarnings("unchecked")
@@ -170,8 +173,6 @@ public class CargarEjemplar extends javax.swing.JFrame {
         }
 
         if(CONTROLADOR.nuevoEjemplar(nombre, tratamiento, tiempo, imagen, categoria)){  
-                //label1.setIcon(new javax.swing.ImageIcon(getClass().getResource(imagen)));
-                //"/Imagenes/botella_de_plastico.jpg"
                return true;
         } else {
             JOptionPane.showMessageDialog(null, "Ya existe un ejemplar con ese nombre.");

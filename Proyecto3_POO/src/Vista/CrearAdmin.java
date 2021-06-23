@@ -23,6 +23,8 @@ public class CrearAdmin extends javax.swing.JFrame {
     public CrearAdmin(Controlador CONTROLADOR) {
         this.CONTROLADOR = CONTROLADOR;
         initComponents();
+        setLocationRelativeTo(null);
+        getContentPane().setBackground(new java.awt.Color(204, 255, 204));
     }
     
     /**

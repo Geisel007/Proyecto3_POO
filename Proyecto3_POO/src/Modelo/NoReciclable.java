@@ -12,4 +12,9 @@ package Modelo;
 public class NoReciclable extends Ejemplar{
     
     public NoReciclable(){}
+
+    public NoReciclable(String nombre, String tratamiento, String tiempoDescomposicion, String imagen) {
+        super(nombre, tratamiento, tiempoDescomposicion, imagen);
+    }
+
 }

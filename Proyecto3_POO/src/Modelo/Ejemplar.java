@@ -1,10 +1,12 @@
 
 package Modelo;
 
+import java.io.Serializable;
+
 /**
  * @author Geisel
  */
-public abstract class Ejemplar {
+public abstract class Ejemplar implements Serializable {
     
     protected String nombre;
     protected String tratamiento;

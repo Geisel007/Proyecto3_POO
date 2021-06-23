@@ -17,6 +17,8 @@ public class TipoDeFiltro extends javax.swing.JFrame {
     public TipoDeFiltro(Controlador CONTROLADOR) {
         initComponents();
         this.CONTROLADOR = CONTROLADOR;
+        setLocationRelativeTo(null);
+        getContentPane().setBackground(new java.awt.Color(204, 255, 204));
     }
     /**
      * Creates new form TipoDeFiltro
